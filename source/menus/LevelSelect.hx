@@ -12,6 +12,7 @@ class LevelSelect extends FlxState
 {
 	var levels:Array<String> = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
 	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
+	var level_locks:Array<Bool> = [false, true, true];
 
 	var levelTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
@@ -89,6 +90,7 @@ class LevelSelect extends FlxState
 		for (levelText in levelTextGrp)
 		{
 			levelText.color = selection == levelText.ID ? FlxColor.YELLOW : FlxColor.WHITE;
+			levelText.alpha = level_locks[levelText.ID] ? 0.5 : 1.0;
 		}
 	}
 }
