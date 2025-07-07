@@ -7,6 +7,10 @@ class InitState extends FlxState
 {
 	override public function create()
 	{
+		// No preloading code yet
+
+		proceed();
+
 		super.create();
 	}
 
