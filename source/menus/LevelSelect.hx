@@ -10,7 +10,7 @@ using StringTools;
 class LevelSelect extends FlxState
 {
 	var levels:Array<String> = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
-	var level_difficulties:Array<Int> = [1, 2, 3];
+	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
 
 	var levelTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
@@ -48,7 +48,13 @@ class LevelSelect extends FlxState
 
 		for (i in 0...levels.length)
 		{
-			var levelText:FlxText = new FlxText(10, 10 + (i * 40), 0, levels[i].toUpperCase().replace('-', ' '), 32);
+			var leveltextstring:String = levels[i].toUpperCase().replace('-', ' ');
+			if (level_difficulties[i] != null)
+			{
+				leveltextstring += ' (Difficulty: ${level_difficulties[i]})';
+			}
+
+			var levelText:FlxText = new FlxText(10, 10 + (i * 40), 0, leveltextstring, 32);
 			levelText.ID = i;
 			trace('Adding new text for ${levelText.text}');
 
