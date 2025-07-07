@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
+import flixel.util.FlxColor;
 
 using StringTools;
 
@@ -13,6 +14,8 @@ class LevelSelect extends FlxState
 	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
 
 	var levelTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
+
+	var selection:Int = 0;
 
 	override function create()
 	{
@@ -29,6 +32,15 @@ class LevelSelect extends FlxState
 		{
 			trace('Levelselect reload level text hotkey');
 			reloadLevelText();
+		}
+
+		if (FlxG.keys.justReleased.UP)
+		{
+			changeSelection(-1);
+		}
+		else if (FlxG.keys.justReleased.DOWN)
+		{
+			changeSelection(1);
 		}
 
 		super.update(elapsed);
@@ -59,6 +71,24 @@ class LevelSelect extends FlxState
 			trace('new SongText(song: ${levels[i]}, difficulty: ${level_difficulties[i]})');
 
 			levelTextGrp.add(levelText);
+		}
+
+		changeSelection();
+	}
+
+	function changeSelection(increment:Int = 0)
+	{
+		selection += increment;
+
+		if (selection < 0)
+			selection = 0;
+
+		if (selection > levels.length - 1)
+			selection = levels.length - 1;
+
+		for (levelText in levelTextGrp)
+		{
+			levelText.color = selection == levelText.ID ? FlxColor.YELLOW : FlxColor.WHITE;
 		}
 	}
 }
