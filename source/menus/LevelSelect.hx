@@ -56,7 +56,7 @@ class LevelSelect extends FlxState
 
 			var levelText:FlxText = new FlxText(10, 10 + (i * 40), 0, leveltextstring, 32);
 			levelText.ID = i;
-			trace('Adding new text for ${levelText.text}');
+			trace('new SongText(song: ${levels[i]}, difficulty: ${level_difficulties[i]})');
 
 			levelTextGrp.add(levelText);
 		}
