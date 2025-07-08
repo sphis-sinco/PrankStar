@@ -3,6 +3,7 @@ package menus;
 import flixel.FlxG;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
+import flixel.util.typeLimit.NextState;
 import levels.pietotheface.PieToTheFace;
 import levels.waterballoon.WaterBalloon;
 import levels.whoopeecushion.WhoopeeCushion;
@@ -11,23 +12,28 @@ using StringTools;
 
 class LevelSelect extends SelectMenuBase
 {
-	var level_difficulties:Array<Null<Int>> = [null, 1, 2, 3];
+	var level_difficulties:Array<Null<Int>> = [null, 1, 2, 3, null, null];
 
 	var starGrp:FlxTypedGroup<Star> = new FlxTypedGroup<Star>();
 	var stars:Int = 5;
+
+	function addLevelEntry(name:String, difficulty:Null<Int>, disabled:Bool, state:NextState)
+	{
+		addEntry(name, disabled, state);
+
+		level_difficulties.push(difficulty);
+	}
 
 	override function create()
 	{
 		PSAssets.cacheTexture('images/menus/levelselect/stars', PSAssets.bullshitFunctions);
 
-		entries = ['back', 'water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
-		entries_disabled = [false, false, false, false];
-		entries_states = [
-			() -> new MainMenu(),
-			() -> new WaterBalloon(),
-			() -> new WhoopeeCushion(),
-			() -> new PieToTheFace()
-		];
+		addLevelEntry('back', null, false, () -> new MainMenu());
+		addLevelEntry('water-balloon', 1, false, () -> new WaterBalloon());
+		addLevelEntry('whoopee-cushion', 2, false, () -> new WhoopeeCushion());
+		addLevelEntry('pie-to-the-face', 3, false, () -> new PieToTheFace());
+		addLevelEntry('ding-dong-ditch', null, true, null);
+		addLevelEntry('water-bucket-over-the-door', null, true, null);
 
 		add(starGrp);
 

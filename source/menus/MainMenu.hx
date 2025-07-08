@@ -6,8 +6,8 @@ class MainMenu extends SelectMenuBase
 	{
 		super();
 
-		entries = ['levels', 'credits', 'settings'];
-		entries_disabled = [false, true, true];
-		entries_states = [() -> new LevelSelect(), null, null];
+		addEntry('levels', false, () -> new LevelSelect());
+		addEntry('credits', true, null);
+		addEntry('settings', true, null);
 	}
 }

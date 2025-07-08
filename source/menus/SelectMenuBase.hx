@@ -20,6 +20,13 @@ class SelectMenuBase extends FlxState
 
 	var selection:Int = 0;
 
+	function addEntry(name:String, disabled:Bool, state:NextState)
+	{
+		entries.push(name);
+		entries_disabled.push(disabled);
+		entries_states.push(state);
+	}
+
 	override function create()
 	{
 		PSAssets.cacheSound('sounds/ui/accepted');
