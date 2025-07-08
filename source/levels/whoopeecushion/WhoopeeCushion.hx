@@ -53,7 +53,7 @@ class WhoopeeCushion extends FlxState
 	{
 		player.setPosition(FlxG.mouse.x - (player.width / 2), FlxG.mouse.y - (player.height / 2));
 		if (!whoopie_placed)
-			whoopie.setPosition(player.x - (whoopie.width / 4), foot.height - 48);
+			whoopie.setPosition(player.x - (whoopie.width / 4), foot.height - 32);
 
 		if (FlxG.mouse.justReleased && !whoopie_placed && introCutsceneHappened)
 			whoopie_placed = true;
