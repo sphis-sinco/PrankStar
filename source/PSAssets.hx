@@ -136,36 +136,38 @@ class PSAssets
 			?onStart:(tpSplit:Array<String>) -> Void
 		}):Void
 	{
+		var fullpath:String = fullPathInit(key, 'image');
+
 		var tpSplit:Array<String>;
-		tpSplit = key.split('/');
+		tpSplit = fullpath.split('/');
 
 		// We don't want to cache the same texture twice.
-		if (currentCachedTextures.exists(key))
+		if (currentCachedTextures.exists(fullpath))
 			return;
 
-		if (previousCachedTextures.exists(key))
+		if (previousCachedTextures.exists(fullpath))
 		{
 			// Move the graphic from the previous cache to the current cache.
-			var graphic = previousCachedTextures.get(key);
-			previousCachedTextures.remove(key);
-			currentCachedTextures.set(key, graphic);
+			var graphic = previousCachedTextures.get(fullpath);
+			previousCachedTextures.remove(fullpath);
+			currentCachedTextures.set(fullpath, graphic);
 			return;
 		}
 
 		functions.onStart(tpSplit);
 
 		// Else, texture is currently uncached.
-		var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, null, true);
+		var graphic:FlxGraphic = FlxGraphic.fromAssetKey(fullpath, false, null, true);
 		var fail = graphic == null;
 		if (fail)
 		{
-			FlxG.log.warn('Failed to cache graphic: $key');
+			FlxG.log.warn('Failed to cache graphic: $fullpath');
 		}
 		else
 		{
-			trace('Successfully cached graphic: $key');
+			trace('Successfully cached graphic: $fullpath');
 			graphic.persist = true;
-			currentCachedTextures.set(key, graphic);
+			currentCachedTextures.set(fullpath, graphic);
 		}
 
 		functions.onComplete();

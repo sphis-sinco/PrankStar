@@ -45,6 +45,8 @@ class LevelSelect extends SelectMenuBase
 			case 'water-balloon':
 				PSAssets.cacheSound('sounds/gameplay/door');
 				PSAssets.cacheSound('sounds/gameplay/waterballoon');
+				PSAssets.cacheTexture('images/waterballoon/door');
+				PSAssets.cacheTexture('images/waterballoon/waterballoon');
 			case 'whoopee-cushion':
 				PSAssets.cacheSound('sounds/gameplay/whoopie');
 			case 'pie-to-the-face':
