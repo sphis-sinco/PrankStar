@@ -50,6 +50,8 @@ class PSAssets
 
 	public static function recache()
 	{
+		assetCacheCheck();
+
 		for (asset in OpenFLAssets.list(SOUND))
 		{
 			cacheSound(asset, true);
@@ -106,8 +108,24 @@ class PSAssets
 		return fullpath;
 	}
 
+	static var assetCacheCheckMsgSent:Bool = false;
+
+	static var assetCacheCheck:Void->Void = function()
+	{
+		if (!Preferences.assetCaching)
+		{
+			if (!assetCacheCheckMsgSent)
+				FlxG.log.notice('Asset caching is disabled');
+			if (!assetCacheCheckMsgSent)
+				assetCacheCheckMsgSent = true;
+			return;
+		}
+	}
+
 	public static function cacheSound(id:String, recache:Bool = false)
 	{
+		assetCacheCheck();
+
 		var fullpath = fullPathInit(id, 'sound');
 
 		if (!OpenFLAssets.cache.hasSound(fullpath) && assetExists(fullpath))
@@ -119,6 +137,8 @@ class PSAssets
 
 	public static function cacheText(id:String, recache:Bool = false)
 	{
+		assetCacheCheck();
+
 		var fullpath = fullPathInit(id, 'text');
 
 		if (!FlxG.assets.list(TEXT).contains(fullpath) && assetExists(fullpath))
@@ -130,17 +150,7 @@ class PSAssets
 
 	public static function playSound(id:String)
 	{
-		var fullpath = fullPathInit(id, 'sound');
-
-		if (OpenFLAssets.cache.hasSound(fullpath))
-		{
-			FlxG.sound.play(OpenFLAssets.getSound(fullpath, true));
-		}
-		else
-		{
-			FlxG.sound.play(fullpath);
-			cacheSound(fullpath); // Cache the sound afterwards
-		}
+		getSound(id).play();
 	}
 
 	public static function getSound(id:String):FlxSound
@@ -148,7 +158,7 @@ class PSAssets
 		var fullpath = fullPathInit(id, 'sound');
 		var sound:FlxSound;
 
-		if (OpenFLAssets.cache.hasSound(fullpath))
+		if (OpenFLAssets.cache.hasSound(fullpath) && Preferences.assetCaching)
 		{
 			sound = new FlxSound().loadEmbedded(OpenFLAssets.getSound(fullpath, true));
 		}
@@ -185,13 +195,15 @@ class PSAssets
 			?onStart:(tpSplit:Array<String>) -> Void
 		}, recache:Bool = false):Void
 	{
+		assetCacheCheck();
+
 		var fullpath:String = fullPathInit(key, 'image');
 
 		var tpSplit:Array<String>;
 		tpSplit = fullpath.split('/');
 
 		// We don't want to cache the same texture twice.
-		if (currentCachedTextures.exists(fullpath))
+		if (currentCachedTextures.exists(fullpath) || !Preferences.assetCaching)
 			return;
 
 		if (previousCachedTextures.exists(fullpath))
