@@ -62,6 +62,8 @@ class Performance extends Sprite
 
 	public function new(showGraph:Bool = false)
 	{
+		var font = openfl.text.Font.fromFile('assets/data/nokiafc22.ttf');
+
 		super();
 
 		this.showGraph = showGraph;
@@ -82,7 +84,7 @@ class Performance extends Sprite
 		performanceText.y = paddingY;
 		performanceText.width = 500;
 		performanceText.selectable = false;
-		performanceText.defaultTextFormat = new TextFormat(openfl.text.Font.fromFile('assets/data/nokiafc22.ttf').fontName, 12, 0xededed);
+		performanceText.defaultTextFormat = new TextFormat(font.fontName, 12, 0xededed);
 		performanceText.text = "FPS: 0 || MEM: 0 MB || MPK: 0 MB";
 		performanceText.embedFonts = true;
 
