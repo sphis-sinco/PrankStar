@@ -40,9 +40,8 @@
 
 	<source path="source" />
 
-	<define name="NO_PRELOAD" unless="web" />
-	<define name="PRELOAD" if="web" unless="NO_PRELOAD" />
-
+	<define name="NO_PRELOAD" unless="web"/>
+	<define name="PRELOAD" unless="NO_PRELOAD" />
 
 	<library name="preload" preload="true" if="PRELOAD" />
 	<library name="preload" preload="false" if="NO_PRELOAD" />
