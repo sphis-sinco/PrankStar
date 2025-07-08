@@ -9,6 +9,7 @@ import flixel.tweens.misc.ShakeTween;
 import flixel.util.FlxColor;
 import flixel.util.typeLimit.NextState;
 import levels.waterballoon.WaterBalloon;
+import levels.whoopiecushion.WhoopieCushion;
 
 using StringTools;
 
@@ -17,7 +18,7 @@ class LevelSelect extends FlxState
 	var levels:Array<String> = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
 	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
 	var level_locks:Array<Bool> = [false, true, true];
-	var level_states:Array<NextState> = [() -> new WaterBalloon(), null, null];
+	var level_states:Array<NextState> = [() -> new WaterBalloon(), () -> new WhoopieCushion(), null];
 
 	var levelTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
