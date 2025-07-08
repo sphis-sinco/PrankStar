@@ -28,6 +28,11 @@ class InitState extends FlxState
 		return;
 		#end
 
+		#if WhoopieCushion
+		FlxG.switchState(() -> new levels.whoopiecushion.WhoopieCushion());
+		return;
+		#end
+
 		FlxG.switchState(() -> new menus.LevelSelect());
 	}
 }
