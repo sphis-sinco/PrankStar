@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="stars.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Star Animation emptyToFull0000" x="4" y="4" width="88" height="63" frameX="-33" frameY="-66" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0001" x="100" y="4" width="108" height="134" frameX="-24" frameY="-8" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0002" x="216" y="4" width="163" height="140" frameX="-16" frameY="-17" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0003" x="4" y="152" width="193" height="143" frameX="-8" frameY="-1" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0004" x="205" y="152" width="200" height="144" frameX="0" frameY="0" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0005" x="4" y="304" width="77" height="92" frameX="-38" frameY="-52" frameWidth="77" frameHeight="92"/>
+	<SubTexture name="Star empty0000" x="413" y="152" width="77" height="92"/>
+	<SubTexture name="Star full0000" x="4" y="304" width="77" height="92"/>
+</TextureAtlas>
