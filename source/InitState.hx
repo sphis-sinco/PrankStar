@@ -44,8 +44,6 @@ class InitState extends FlxState
 		PSAssets.cacheSound('assets/sounds/waterballoon.wav');
 		PSAssets.cacheSound('assets/sounds/whoopie.wav');
 
-		trace(FlxG.assets.list());
-
 		proceed();
 	}
 }
