@@ -29,25 +29,6 @@ class LevelSelect extends SelectMenuBase
 		super.create();
 	}
 
-	override function reloadEntryText()
-	{
-		super.reloadEntryText();
-
-		for (i in 0...entries.length)
-		{
-			var leveltextstring:String = entryTextString(entries[i]);
-			if (level_difficulties[i] != null)
-			{
-				leveltextstring += ' (Difficulty: ${FlxMath.roundDecimal(level_difficulties[i], 1)})';
-			}
-
-			entriesTextGrp.members[i].text = leveltextstring;
-			trace('new SongText(song: ${entries[i]}, difficulty: ${level_difficulties[i]})');
-		}
-
-		changeSelection();
-	}
-
 	override function changeSelection(increment:Int = 0)
 	{
 		super.changeSelection(increment);
