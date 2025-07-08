@@ -9,6 +9,7 @@ class WhoopeeCushion extends FlxState
 	var whoopie_placed:Bool;
 
 	var foot:FlxSprite;
+	var footNewX:Float = 0.0;
 
 	var cutsceneHappened:Bool = false;
 
@@ -19,7 +20,25 @@ class WhoopeeCushion extends FlxState
 
 		foot = new FlxSprite().makeGraphic(128, 512, FlxColor.BROWN);
 		add(foot);
-		foot.visible = false;
+		foot.visible = true;
+		foot.setPosition(footNewX, 32);
+		foot.screenCenter(X);
+		footNewX = FlxG.random.float(0, FlxG.width - foot.width);
+
+		final footNewXTweenDivider = 5;
+		FlxTween.tween(foot, {
+			y: -foot.height - 32,
+			x: (footNewX > foot.x) ? foot.x + (footNewX / footNewXTweenDivider) : foot.x - (footNewX / footNewXTweenDivider)
+		}, 1, {
+			onStart: tween ->
+			{
+				foot.flipX = footNewX < foot.x;
+			},
+			onComplete: tween ->
+			{
+				foot.visible = false;
+			}
+		});
 
 		player = new FlxSprite().makeGraphic(80, 64);
 		add(player);
@@ -39,12 +58,12 @@ class WhoopeeCushion extends FlxState
 		if (whoopie_placed && !cutsceneHappened)
 		{
 			cutsceneHappened = true;
-			foot.x = FlxG.random.float(0, FlxG.width - foot.width);
+			foot.x = footNewX;
 			// foot.x = FlxG.mouse.x;
-			foot.y = -foot.height;
+			foot.y = -foot.height - 32;
 			foot.visible = true;
 
-			FlxTween.tween(foot, {y: 0}, 0.25, {
+			FlxTween.tween(foot, {y: -32}, 0.25, {
 				onComplete: tween ->
 				{
 					if (whoopie.overlaps(foot))
