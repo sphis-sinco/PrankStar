@@ -35,6 +35,12 @@
 	<source path="source" />
 	<assets path="assets" />
 
+	<!-- ________________________________ Defines _______________________________ -->
+
+	<define name="RECACHE_LOGS" unless="NO_RECACHE_LOGS"/>
+	<define name="CACHE_LOGS" unless="NO_CACHE_LOGS"/>
+	<define name="LOG_TO_TRACES" unless="NO_LOGS_TO_TRACES"/>
+
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />

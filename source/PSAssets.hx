@@ -76,7 +76,15 @@ class PSAssets
 
 	private static function cacheMsg(id:String, recache:Bool = false)
 	{
-		FlxG.log.add('${recache ? 'Recaching' : 'Caching'} "$id"');
+		#if RECACHE_LOGS
+		if (recache)
+			FlxG.log.add('Recaching "$id"');
+		#end
+
+		#if CACHE_LOGS
+		if (!recache)
+			FlxG.log.add('Caching "$id"');
+		#end
 	}
 
 	public static function fullPathInit(id:String, type:String = '')
