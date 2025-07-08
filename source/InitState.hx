@@ -8,6 +8,7 @@ class InitState extends FlxState
 	override public function create()
 	{
 		trace('Running Flixel ${FlxG.VERSION.toString().split(' ')[1]}');
+		Main.performanceText.visible = Preferences.performanceText;
 
 		preload();
 

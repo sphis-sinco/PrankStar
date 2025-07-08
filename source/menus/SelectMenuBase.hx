@@ -47,6 +47,10 @@ class SelectMenuBase extends FlxState
 			trace('SelectMenuBase reload entry text hotkey');
 			reloadEntryText();
 		}
+		if (FlxG.keys.justReleased.T)
+		{
+			Preferences.togglePerformanceText();
+		}
 
 		if (FlxG.keys.justReleased.UP)
 		{
@@ -99,7 +103,7 @@ class SelectMenuBase extends FlxState
 
 		for (i in 0...entries.length)
 		{
-			var entryText:FlxText = new FlxText(10, 10 + (i * 40), 0, entryTextString(entries[i]), 32);
+			var entryText:FlxText = new FlxText(10, ((Preferences.performanceText) ? 20 : 10) + (i * 40), 0, entryTextString(entries[i]), 32);
 			entryText.ID = i;
 			trace(entryLog(entries[i]));
 
