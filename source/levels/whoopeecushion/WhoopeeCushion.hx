@@ -1,4 +1,4 @@
-package levels.whoopiecushion;
+package levels.whoopeecushion;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import menus.LevelSelect;
 
-class WhoopieCushion extends FlxState
+class WhoopeeCushion extends FlxState
 {
 	var player:FlxSprite;
 	var whoopie:FlxSprite;

@@ -29,7 +29,7 @@ class InitState extends FlxState
 		#end
 
 		#if WhoopieCushion
-		FlxG.switchState(() -> new levels.whoopiecushion.WhoopieCushion());
+		FlxG.switchState(() -> new levels.whoopeecushion.WhoopeeCushion());
 		return;
 		#end
 
