@@ -46,6 +46,7 @@ class WhoopeeCushion extends FlxState
 		{
 			cutsceneHappened = true;
 			foot.x = FlxG.random.float(0, FlxG.width - foot.width);
+			// foot.x = FlxG.mouse.x;
 			foot.y = -foot.height;
 			foot.visible = true;
 
