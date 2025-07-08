@@ -28,6 +28,9 @@ class WhoopieCushion extends FlxState
 		if (!placed)
 			whoopie.setPosition(player.x, player.y + (whoopie.height / 2));
 
+		if (FlxG.mouse.justReleased && !placed)
+			placed = true;
+
 		super.update(elapsed);
 	}
 }
