@@ -91,7 +91,7 @@ class SelectMenuBase extends FlxState
 		{
 			for (entryText in entriesTextGrp)
 			{
-				// trace('Trying to remove the previous text for ${entryText.text}');
+				trace('Trying to remove the previous text for ${entryText.text}');
 				entriesTextGrp.remove(entryText);
 				entryText.destroy();
 			}
@@ -101,7 +101,7 @@ class SelectMenuBase extends FlxState
 		{
 			var entryText:FlxText = new FlxText(10, ((Preferences.performanceText) ? 20 : 10) + (i * 40), 0, entryTextString(entries[i]), 32);
 			entryText.ID = i;
-			// trace(entryLog(entries[i]));
+			trace(entryLog(entries[i]));
 
 			entriesTextGrp.add(entryText);
 		}
