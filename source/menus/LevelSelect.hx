@@ -42,10 +42,10 @@ class LevelSelect extends SelectMenuBase
 		switch (entry)
 		{
 			case 'water-balloon':
-				PSAssets.cacheSound('assets/sounds/door.wav');
-				PSAssets.cacheSound('assets/sounds/waterballoon.wav');
+				PSAssets.cacheSound('assets/sounds/gameplay/door.wav');
+				PSAssets.cacheSound('assets/sounds/gameplay/waterballoon.wav');
 			case 'whoopee-cushion':
-				PSAssets.cacheSound('assets/sounds/whoopie.wav');
+				PSAssets.cacheSound('assets/sounds/gameplay/whoopie.wav');
 		}
 	}
 }

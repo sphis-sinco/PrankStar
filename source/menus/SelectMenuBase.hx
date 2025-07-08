@@ -22,6 +22,10 @@ class SelectMenuBase extends FlxState
 
 	override function create()
 	{
+		PSAssets.cacheSound('assets/sounds/ui/accepted.wav');
+		PSAssets.cacheSound('assets/sounds/ui/denied.wav');
+		PSAssets.cacheSound('assets/sounds/ui/scroll.wav');
+
 		add(entriesTextGrp);
 
 		reloadEntryText();

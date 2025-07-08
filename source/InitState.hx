@@ -36,9 +36,7 @@ class InitState extends FlxState
 
 	public function preload()
 	{
-		PSAssets.cacheSound('assets/sounds/ui/accepted.wav');
-		PSAssets.cacheSound('assets/sounds/ui/denied.wav');
-		PSAssets.cacheSound('assets/sounds/ui/scroll.wav');
+		PSAssets.recache();
 
 		proceed();
 	}
