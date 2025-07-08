@@ -59,9 +59,9 @@ class SelectMenuBase extends FlxState
 			entryText.color = selectedColorCondition ? FlxColor.GREEN : FlxColor.RED;
 
 			if (entryText.color == FlxColor.RED)
-				FlxG.sound.play(FlxG.assets.getSoundAddExt('assets/sounds/ui/denied.wav', true));
+				PSAssets.playSound('assets/sounds/ui/denied.wav');
 			else
-				FlxG.sound.play(FlxG.assets.getSoundAddExt('assets/sounds/ui/accepted.wav', true));
+				PSAssets.playSound('assets/sounds/ui/accepted.wav');
 
 			FlxFlicker.flicker(entryText, 1, 0.05, true, true, flicker ->
 			{
@@ -120,11 +120,11 @@ class SelectMenuBase extends FlxState
 
 		if (selection != prevsel && increment != 0)
 		{
-			FlxG.sound.play(FlxG.assets.getSoundAddExt('assets/sounds/ui/scroll.wav', true));
+			PSAssets.playSound('assets/sounds/ui/scroll.wav');
 		}
 		else if (selection == prevsel && increment != 0)
 		{
-			FlxG.sound.play(FlxG.assets.getSoundAddExt('assets/sounds/ui/denied.wav', true));
+			PSAssets.playSound('assets/sounds/ui/denied.wav');
 		}
 
 		for (entryText in entriesTextGrp)

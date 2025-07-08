@@ -36,13 +36,15 @@ class InitState extends FlxState
 
 	public function preload()
 	{
-		FlxG.assets.loadSound('assets/sounds/ui/accepted.wav', true);
-		FlxG.assets.loadSound('assets/sounds/ui/denied.wav', true);
-		FlxG.assets.loadSound('assets/sounds/ui/scroll.wav', true);
+		PSAssets.cacheSound('assets/sounds/ui/accepted.wav');
+		PSAssets.cacheSound('assets/sounds/ui/denied.wav');
+		PSAssets.cacheSound('assets/sounds/ui/scroll.wav');
 
-		FlxG.assets.loadSound('assets/sounds/door.wav', true);
-		FlxG.assets.loadSound('assets/sounds/waterballoon.wav', true);
-		FlxG.assets.loadSound('assets/sounds/whoopie.wav', true);
+		PSAssets.cacheSound('assets/sounds/door.wav');
+		PSAssets.cacheSound('assets/sounds/waterballoon.wav');
+		PSAssets.cacheSound('assets/sounds/whoopie.wav');
+
+		trace(FlxG.assets.list());
 
 		proceed();
 	}
