@@ -13,7 +13,7 @@ class WhoopieCushion extends FlxState
 
 	override function create()
 	{
-		whoopie = new FlxSprite().makeGraphic(64, 64, FlxColor.PINK);
+		whoopie = new FlxSprite().makeGraphic(96, 64, FlxColor.PINK);
 		add(whoopie);
 
 		player = new FlxSprite().makeGraphic(80, 64);
@@ -26,7 +26,7 @@ class WhoopieCushion extends FlxState
 	{
 		player.setPosition(FlxG.mouse.x - (player.width / 2), FlxG.mouse.y - (player.height / 2));
 		if (!placed)
-			whoopie.setPosition(player.x, player.y + (whoopie.height / 2));
+			whoopie.setPosition(player.x - (whoopie.width / 2), player.y + (whoopie.height / 2));
 
 		if (FlxG.mouse.justReleased && !placed)
 			placed = true;
