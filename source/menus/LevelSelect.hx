@@ -11,7 +11,7 @@ using StringTools;
 
 class LevelSelect extends SelectMenuBase
 {
-	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
+	var level_difficulties:Array<Null<Int>> = [null, 1, 2, 3];
 
 	var starGrp:FlxTypedGroup<Star> = new FlxTypedGroup<Star>();
 	var stars:Int = 5;
@@ -20,9 +20,14 @@ class LevelSelect extends SelectMenuBase
 	{
 		PSAssets.cacheTexture('images/menus/levelselect/stars', PSAssets.bullshitFunctions);
 
-		entries = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
-		entries_disabled = [false, false, false];
-		entries_states = [() -> new WaterBalloon(), () -> new WhoopeeCushion(), () -> new PieToTheFace()];
+		entries = ['back', 'water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
+		entries_disabled = [false, false, false, false];
+		entries_states = [
+			() -> new MainMenu(),
+			() -> new WaterBalloon(),
+			() -> new WhoopeeCushion(),
+			() -> new PieToTheFace()
+		];
 
 		add(starGrp);
 
@@ -56,6 +61,9 @@ class LevelSelect extends SelectMenuBase
 				star.destroy();
 			}
 		}
+
+		if (level_difficulties[selection] == null)
+			return;
 
 		for (i in 0...5)
 		{
