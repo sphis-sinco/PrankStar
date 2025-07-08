@@ -85,6 +85,9 @@ class LevelSelect extends SelectMenuBase
 	{
 		super.preStateSwitchEvent(entry);
 
+		if (!Preferences.assetCaching)
+			return; // Don't waste our time
+
 		switch (entry)
 		{
 			case 'water-balloon':
