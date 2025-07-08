@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="whoopee.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Whoopee0000" x="4" y="201" width="258" height="83"/>
+	<SubTexture name="Whoopee land0000" x="4" y="4" width="269" height="94" frameX="-4" frameY="0" frameWidth="273" frameHeight="95"/>
+	<SubTexture name="Whoopee land0001" x="4" y="106" width="257" height="87" frameX="0" frameY="-8" frameWidth="273" frameHeight="95"/>
+</TextureAtlas>

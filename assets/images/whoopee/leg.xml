@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="leg.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Leg0000" x="4" y="4" width="326" height="619"/>
+	<SubTexture name="Leg lift0000" x="4" y="4" width="326" height="619" frameX="-3" frameY="-2" frameWidth="326" frameHeight="619"/>
+	<SubTexture name="Leg lift0001" x="4" y="4" width="326" height="619" frameX="-3" frameY="-2" frameWidth="326" frameHeight="619"/>
+	<SubTexture name="Leg lift0002" x="999" y="4" width="296" height="610" frameX="0" frameY="-2" frameWidth="340" frameHeight="621"/>
+	<SubTexture name="Leg lift0003" x="999" y="4" width="296" height="610" frameX="0" frameY="-2" frameWidth="340" frameHeight="621"/>
+	<SubTexture name="Leg lift0004" x="1695" y="4" width="338" height="471" frameX="-2" frameY="0" frameWidth="340" frameHeight="621"/>
+	<SubTexture name="Leg lift0005" x="1695" y="4" width="338" height="471" frameX="-2" frameY="0" frameWidth="340" frameHeight="621"/>
+	<SubTexture name="Leg lift0006" x="4" y="4" width="0" height="0" frameX="-3" frameY="-2" frameWidth="340" frameHeight="621"/>
+	<SubTexture name="Leg stomp0000" x="4" y="4" width="0" height="0" frameX="-1" frameY="-24" frameWidth="387" frameHeight="643"/>
+	<SubTexture name="Leg stomp0001" x="1303" y="4" width="384" height="449" frameX="-3" frameY="0" frameWidth="387" frameHeight="643"/>
+	<SubTexture name="Leg stomp0002" x="1303" y="4" width="384" height="449" frameX="-3" frameY="0" frameWidth="387" frameHeight="643"/>
+	<SubTexture name="Leg stomp0003" x="672" y="4" width="319" height="606" frameX="0" frameY="-16" frameWidth="387" frameHeight="643"/>
+	<SubTexture name="Leg stomp0004" x="672" y="4" width="319" height="606" frameX="0" frameY="-16" frameWidth="387" frameHeight="643"/>
+	<SubTexture name="Leg stomp0005" x="338" y="4" width="326" height="619" frameX="-1" frameY="-24" frameWidth="387" frameHeight="643"/>
+	<SubTexture name="Leg stomp0006" x="338" y="4" width="326" height="619" frameX="-1" frameY="-24" frameWidth="387" frameHeight="643"/>
+</TextureAtlas>
