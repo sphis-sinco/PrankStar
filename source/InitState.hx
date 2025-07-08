@@ -7,6 +7,8 @@ class InitState extends FlxState
 {
 	override public function create()
 	{
+		trace('Running Flixel ${FlxG.VERSION}');
+
 		// No preloading code yet
 
 		proceed();
