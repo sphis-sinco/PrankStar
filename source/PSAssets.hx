@@ -25,14 +25,14 @@ class PSAssets
 	{
 		for (asset in OpenFLAssets.list(SOUND))
 		{
-			FlxG.log.add('Recaching "$asset"');
+			// FlxG.log.add('Recaching "$asset"');
 			cacheSound(asset);
 		}
 	}
 
 	public static function cacheSound(id:String)
 	{
-		FlxG.log.add('Caching "$id"');
+		// FlxG.log.add('Caching "$id"');
 		OpenFLAssets.loadSound(id, !OpenFLAssets.cache.hasSound(id));
 	}
 
