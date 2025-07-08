@@ -14,8 +14,24 @@ using StringTools;
 // When the project was still called that.
 class PSAssets
 {
+	public static var bullshitFuncion:(tpSplit:Array<String>) -> Void = tpSplit -> {};
+	public static var bullshitFunctions:
+		{
+			?onComplete:Void->Void,
+			?onFail:(tpSplit:Array<String>) -> Void,
+			?onSuccess:(tpSplit:Array<String>) -> Void,
+			?onStart:(tpSplit:Array<String>) -> Void
+		};
+
 	public static function init()
 	{
+		bullshitFunctions = {
+			onStart: bullshitFuncion,
+			onSuccess: bullshitFuncion,
+			onFail: bullshitFuncion,
+			onComplete: () -> {}
+		}
+
 		LimeAssets.cache.enabled = true;
 		OpenFLAssets.cache.enabled = true;
 
@@ -40,6 +56,10 @@ class PSAssets
 		for (asset in OpenFLAssets.list(TEXT))
 		{
 			cacheText(asset, true);
+		}
+		for (asset in OpenFLAssets.list(IMAGE))
+		{
+			cacheTexture(asset, bullshitFunctions, true);
 		}
 	}
 
@@ -134,7 +154,7 @@ class PSAssets
 			?onFail:(tpSplit:Array<String>) -> Void,
 			?onSuccess:(tpSplit:Array<String>) -> Void,
 			?onStart:(tpSplit:Array<String>) -> Void
-		}):Void
+		}, recache:Bool = false):Void
 	{
 		var fullpath:String = fullPathInit(key, 'image');
 
@@ -157,6 +177,7 @@ class PSAssets
 		functions.onStart(tpSplit);
 
 		// Else, texture is currently uncached.
+		cacheMsg(fullpath, recache);
 		var graphic:FlxGraphic = FlxGraphic.fromAssetKey(fullpath, false, null, true);
 		var fail = graphic == null;
 		if (fail)
@@ -165,7 +186,7 @@ class PSAssets
 		}
 		else
 		{
-			trace('Successfully cached graphic: $fullpath');
+			FlxG.log.add('Successfully cached graphic: $fullpath');
 			graphic.persist = true;
 			currentCachedTextures.set(fullpath, graphic);
 		}

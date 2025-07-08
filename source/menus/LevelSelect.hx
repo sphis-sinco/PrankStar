@@ -36,26 +36,17 @@ class LevelSelect extends SelectMenuBase
 		changeSelection();
 	}
 
-	var bullshitFuncion:(tpSplit:Array<String>) -> Void = tpSplit -> {};
-
 	override function preStateSwitchEvent(entry:String)
 	{
 		super.preStateSwitchEvent(entry);
-
-		var bullshitFunctions = {
-			onStart: bullshitFuncion,
-			onSuccess: bullshitFuncion,
-			onFail: bullshitFuncion,
-			onComplete: () -> {}
-		};
 
 		switch (entry)
 		{
 			case 'water-balloon':
 				PSAssets.cacheSound('sounds/gameplay/door');
 				PSAssets.cacheSound('sounds/gameplay/waterballoon');
-				PSAssets.cacheTexture('images/waterballoon/door', bullshitFunctions);
-				PSAssets.cacheTexture('images/waterballoon/waterballoon', bullshitFunctions);
+				PSAssets.cacheTexture('images/waterballoon/door', PSAssets.bullshitFunctions);
+				PSAssets.cacheTexture('images/waterballoon/waterballoon', PSAssets.bullshitFunctions);
 			case 'whoopee-cushion':
 				PSAssets.cacheSound('sounds/gameplay/whoopie');
 			case 'pie-to-the-face':
