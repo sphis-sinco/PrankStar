@@ -6,6 +6,10 @@ import openfl.utils.Assets as OpenFLAssets;
 
 using StringTools;
 
+// Prank
+// Star
+// Assets
+// When the project was still called that.
 class PSAssets
 {
 	public static function init()
