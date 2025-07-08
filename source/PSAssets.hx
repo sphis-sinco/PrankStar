@@ -154,8 +154,7 @@ class PSAssets
 			return;
 		}
 
-		if (functions.onStart != null)
-			functions.onStart(tpSplit);
+		functions.onStart(tpSplit);
 
 		// Else, texture is currently uncached.
 		var graphic:FlxGraphic = FlxGraphic.fromAssetKey(fullpath, false, null, true);
@@ -171,18 +170,15 @@ class PSAssets
 			currentCachedTextures.set(fullpath, graphic);
 		}
 
-		if (functions.onComplete != null)
-			functions.onComplete();
+		functions.onComplete();
 
 		if (fail)
 		{
-			if (functions.onFail != null)
-				functions.onFail(tpSplit);
+			functions.onFail(tpSplit);
 		}
 		else
 		{
-			if (functions.onSuccess != null)
-				functions.onSuccess(tpSplit);
+			functions.onSuccess(tpSplit);
 		}
 	}
 
