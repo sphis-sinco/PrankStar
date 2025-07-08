@@ -47,10 +47,6 @@ class SelectMenuBase extends FlxState
 			trace('SelectMenuBase reload entry text hotkey');
 			reloadEntryText();
 		}
-		if (FlxG.keys.justReleased.T)
-		{
-			Preferences.togglePerformanceText();
-		}
 
 		if (FlxG.keys.justReleased.UP)
 		{
