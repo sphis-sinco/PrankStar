@@ -13,7 +13,7 @@ using StringTools;
 class SelectMenuBase extends FlxState
 {
 	var entries:Array<String> = [];
-	var entries_enabled:Array<Bool> = [];
+	var entries_disabled:Array<Bool> = [];
 	var entries_states:Array<NextState> = [];
 
 	var entriesTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
@@ -37,7 +37,7 @@ class SelectMenuBase extends FlxState
 
 	function get_changeStateCondition():Bool
 	{
-		return (entries_states[selection] != null && !entries_enabled[selection]);
+		return (entries_states[selection] != null && !entries_disabled[selection]);
 	}
 
 	override function update(elapsed:Float)
@@ -151,7 +151,7 @@ class SelectMenuBase extends FlxState
 			}
 
 			entryText.color = selection == entryText.ID ? FlxColor.YELLOW : FlxColor.WHITE;
-			entryText.alpha = entries_enabled[entryText.ID] ? 0.5 : 1.0;
+			entryText.alpha = entries_disabled[entryText.ID] ? 0.5 : 1.0;
 		}
 	}
 }

@@ -2,6 +2,8 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import menus.LevelSelect;
+import menus.MainMenu;
 
 class InitState extends FlxState
 {
@@ -32,7 +34,7 @@ class InitState extends FlxState
 		return;
 		#end
 
-		FlxG.switchState(() -> new menus.LevelSelect());
+		FlxG.switchState(() -> new MainMenu());
 	}
 
 	public function preload()

@@ -21,7 +21,7 @@ class LevelSelect extends SelectMenuBase
 		PSAssets.cacheTexture('images/menus/levelselect/stars', PSAssets.bullshitFunctions);
 
 		entries = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
-		entries_enabled = [false, false, false];
+		entries_disabled = [false, false, false];
 		entries_states = [() -> new WaterBalloon(), () -> new WhoopeeCushion(), () -> new PieToTheFace()];
 
 		add(starGrp);
