@@ -5,7 +5,7 @@ import flixel.tweens.FlxTween;
 class WhoopeeCushion extends FlxState
 {
 	var player:FlxSprite;
-	var whoopie:FlxSprite;
+	var whoopie:Whoopee;
 	var whoopie_placed:Bool;
 
 	var foot:FlxSprite;
@@ -14,7 +14,7 @@ class WhoopeeCushion extends FlxState
 
 	override function create()
 	{
-		whoopie = new FlxSprite().makeGraphic(96, 64, FlxColor.PINK);
+		whoopie = new Whoopee();
 		add(whoopie);
 
 		foot = new FlxSprite().makeGraphic(128, 512, FlxColor.BROWN);
@@ -51,6 +51,7 @@ class WhoopeeCushion extends FlxState
 					{
 						// play an sfx
 						PSAssets.playSound('sounds/gameplay/whoopie');
+						whoopie.animation.play('land');
 						trace('Whoopie success');
 					}
 					else
