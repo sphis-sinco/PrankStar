@@ -10,7 +10,7 @@ class WaterBalloon extends FlxState
 
 	override function create()
 	{
-		player = new FlxSprite().makeGraphic(64, 32, FlxColor.RED);
+		player = new FlxSprite().makeGraphic(64, 32, FlxColor.CYAN);
 		add(player);
 		player.screenCenter();
 
