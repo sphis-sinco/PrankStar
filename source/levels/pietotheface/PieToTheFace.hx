@@ -55,7 +55,7 @@ class PieToTheFace extends FlxState
 		{
 			if (!endingCutscenePlayed)
 			{
-				// pie sfx
+				PSAssets.playSound('assets/sounds/gameplay/pie.wav');
 
 				if (pie.overlaps(target))
 				{

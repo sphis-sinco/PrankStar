@@ -47,6 +47,8 @@ class LevelSelect extends SelectMenuBase
 				PSAssets.cacheSound('assets/sounds/gameplay/waterballoon.wav');
 			case 'whoopee-cushion':
 				PSAssets.cacheSound('assets/sounds/gameplay/whoopie.wav');
+			case 'pie-to-the-face':
+				PSAssets.cacheSound('assets/sounds/gameplay/pie.wav');
 		}
 	}
 }

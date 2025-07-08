@@ -38,6 +38,9 @@ class PSAssets
 
 	public static function playSound(id:String)
 	{
-		FlxG.sound.play(OpenFLAssets.getSound(id, true));
+		if (OpenFLAssets.exists(id, SOUND))
+			FlxG.sound.play(OpenFLAssets.getSound(id, true));
+		else
+			FlxG.sound.play(id);
 	}
 }
