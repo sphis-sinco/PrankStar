@@ -98,7 +98,9 @@ class SelectMenuBase extends FlxState
 		{
 			for (entryText in entriesTextGrp)
 			{
+				#if NEW_ENTRY_TEXT_LOG
 				trace('Trying to remove the previous text for ${entryText.text}');
+				#end
 				entriesTextGrp.remove(entryText);
 				entryText.destroy();
 			}
@@ -108,7 +110,9 @@ class SelectMenuBase extends FlxState
 		{
 			var entryText:FlxText = new FlxText(10, ((Preferences.performanceText) ? 20 : 10) + (i * 40), 0, entryTextString(entries[i]), 32);
 			entryText.ID = i;
+			#if NEW_ENTRY_TEXT_LOG
 			trace(entryLog(entries[i]));
+			#end
 
 			entriesTextGrp.add(entryText);
 		}
