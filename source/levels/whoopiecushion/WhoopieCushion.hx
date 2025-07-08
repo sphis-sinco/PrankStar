@@ -9,7 +9,7 @@ class WhoopieCushion extends FlxState
 {
 	var player:FlxSprite;
 	var whoopie:FlxSprite;
-	var placed:Bool;
+	var whoopie_placed:Bool;
 
 	override function create()
 	{
@@ -25,11 +25,11 @@ class WhoopieCushion extends FlxState
 	override function update(elapsed:Float)
 	{
 		player.setPosition(FlxG.mouse.x - (player.width / 2), FlxG.mouse.y - (player.height / 2));
-		if (!placed)
-			whoopie.setPosition(player.x - (whoopie.width / 2), player.y + (whoopie.height / 2));
+		if (!whoopie_placed)
+			whoopie.setPosition(player.x - (whoopie.width / 4), player.y + (whoopie.height / 4));
 
-		if (FlxG.mouse.justReleased && !placed)
-			placed = true;
+		if (FlxG.mouse.justReleased && !whoopie_placed)
+			whoopie_placed = true;
 
 		super.update(elapsed);
 	}
