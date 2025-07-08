@@ -1,5 +1,6 @@
 package menus;
 
+import levels.pietotheface.PieToTheFace;
 import levels.waterballoon.WaterBalloon;
 import levels.whoopeecushion.WhoopeeCushion;
 
@@ -10,8 +11,8 @@ class LevelSelect extends SelectMenuBase
 	override function create()
 	{
 		entries = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
-		entries_enabled = [false, false, true];
-		entries_states = [() -> new WaterBalloon(), () -> new WhoopeeCushion(), null];
+		entries_enabled = [false, false, false];
+		entries_states = [() -> new WaterBalloon(), () -> new WhoopeeCushion(), () -> new PieToTheFace()];
 
 		super.create();
 	}
