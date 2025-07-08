@@ -11,7 +11,7 @@ using StringTools;
 
 class LevelSelect extends SelectMenuBase
 {
-	var level_difficulties:Array<Null<Int>> = [1, 4, 3];
+	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
 
 	var starGrp:FlxTypedGroup<Star> = new FlxTypedGroup<Star>();
 	var stars:Int = 5;

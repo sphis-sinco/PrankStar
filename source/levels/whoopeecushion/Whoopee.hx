@@ -13,12 +13,4 @@ class Whoopee extends FlxSprite
 		animation.addByPrefix('land', 'Whoopee land0', 24, false);
 		animation.play('idle');
 	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		if (animation.finished && animation.name == 'toss')
-			visible = false;
-	}
 }

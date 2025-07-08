@@ -8,17 +8,18 @@ class WhoopeeCushion extends FlxState
 	var whoopie:Whoopee;
 	var whoopie_placed:Bool;
 
-	var foot:FlxSprite;
+	var foot:Leg;
 	var footNewX:Float = 0.0;
 
-	var cutsceneHappened:Bool = false;
+	var introCutsceneHappened:Bool = false;
+	var endCutsceneHappened:Bool = false;
 
 	override function create()
 	{
 		whoopie = new Whoopee();
 		add(whoopie);
 
-		foot = new FlxSprite().makeGraphic(128, 512, FlxColor.BROWN);
+		foot = new Leg();
 		add(foot);
 		foot.visible = true;
 		foot.setPosition(footNewX, 32);
@@ -32,11 +33,13 @@ class WhoopeeCushion extends FlxState
 		}, 1, {
 			onStart: tween ->
 			{
-				foot.flipX = footNewX < foot.x;
+				foot.flipX = footNewX > foot.x;
+				foot.animation.play('lift');
 			},
 			onComplete: tween ->
 			{
 				foot.visible = false;
+				introCutsceneHappened = true;
 			}
 		});
 
@@ -50,20 +53,24 @@ class WhoopeeCushion extends FlxState
 	{
 		player.setPosition(FlxG.mouse.x - (player.width / 2), FlxG.mouse.y - (player.height / 2));
 		if (!whoopie_placed)
-			whoopie.setPosition(player.x - (whoopie.width / 4), foot.height - 64);
+			whoopie.setPosition(player.x - (whoopie.width / 4), foot.height - 48);
 
-		if (FlxG.mouse.justReleased && !whoopie_placed)
+		if (FlxG.mouse.justReleased && !whoopie_placed && introCutsceneHappened)
 			whoopie_placed = true;
 
-		if (whoopie_placed && !cutsceneHappened)
+		if (whoopie_placed && !endCutsceneHappened)
 		{
-			cutsceneHappened = true;
+			endCutsceneHappened = true;
 			foot.x = footNewX;
 			// foot.x = FlxG.mouse.x;
 			foot.y = -foot.height - 32;
-			foot.visible = true;
 
-			FlxTween.tween(foot, {y: -32}, 0.25, {
+			FlxTween.tween(foot, {y: -35}, 0.25, {
+				onStart: tween ->
+				{
+					foot.visible = true;
+					foot.animation.play('stomp');
+				},
 				onComplete: tween ->
 				{
 					if (whoopie.overlaps(foot))
