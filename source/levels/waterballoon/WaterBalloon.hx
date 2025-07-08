@@ -89,7 +89,7 @@ class WaterBalloon extends FlxState
 				door2.color = FlxColor.BLACK;
 				door3.color = FlxColor.BLACK;
 
-				FlxG.sound.play('assets/sounds/door.wav');
+				FlxG.sound.play(FlxG.assets.getSoundAddExt('assets/sounds/door.wav', true));
 
 				FlxTimer.wait(1, () ->
 				{
@@ -97,7 +97,7 @@ class WaterBalloon extends FlxState
 					// if (selectedDoor == the_door)
 					player.visible = false;
 
-					FlxG.sound.play('assets/sounds/waterballoon.wav');
+					FlxG.sound.play(FlxG.assets.getSoundAddExt('assets/sounds/waterballoon.wav', true));
 
 					if (the_door == 1)
 						door1.color = FlxColor.LIME;

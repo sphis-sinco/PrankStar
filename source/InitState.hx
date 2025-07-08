@@ -9,9 +9,7 @@ class InitState extends FlxState
 	{
 		trace('Running Flixel ${FlxG.VERSION.toString().split(' ')[1]}');
 
-		// No preloading code yet
-
-		proceed();
+		preload();
 
 		super.create();
 	}
@@ -34,5 +32,18 @@ class InitState extends FlxState
 		#end
 
 		FlxG.switchState(() -> new menus.LevelSelect());
+	}
+
+	public function preload()
+	{
+		FlxG.assets.loadSound('assets/sounds/ui/accepted.wav', true);
+		FlxG.assets.loadSound('assets/sounds/ui/denied.wav', true);
+		FlxG.assets.loadSound('assets/sounds/ui/scroll.wav', true);
+
+		FlxG.assets.loadSound('assets/sounds/door.wav', true);
+		FlxG.assets.loadSound('assets/sounds/waterballoon.wav', true);
+		FlxG.assets.loadSound('assets/sounds/whoopie.wav', true);
+
+		proceed();
 	}
 }
