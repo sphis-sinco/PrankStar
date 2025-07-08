@@ -89,9 +89,15 @@ class WaterBalloon extends FlxState
 				door2.color = FlxColor.BLACK;
 				door3.color = FlxColor.BLACK;
 
+				FlxG.sound.play('assets/sounds/door.wav');
+
 				FlxTimer.wait(1, () ->
 				{
 					// The right door will show a person and they get splashed
+					// if (selectedDoor == the_door)
+					player.visible = false;
+
+					FlxG.sound.play('assets/sounds/waterballoon.wav');
 
 					if (the_door == 1)
 						door1.color = FlxColor.LIME;
