@@ -1,12 +1,13 @@
 package menus;
 
+import flixel.math.FlxMath;
 import levels.pietotheface.PieToTheFace;
 import levels.waterballoon.WaterBalloon;
 import levels.whoopeecushion.WhoopeeCushion;
 
 class LevelSelect extends SelectMenuBase
 {
-	var level_difficulties:Array<Null<Int>> = [1, 4, 3];
+	var level_difficulties:Array<Null<Float>> = [1, 4, 3];
 
 	override function create()
 	{
@@ -26,7 +27,7 @@ class LevelSelect extends SelectMenuBase
 			var leveltextstring:String = entryTextString(entries[i]);
 			if (level_difficulties[i] != null)
 			{
-				leveltextstring += ' (Difficulty: ${level_difficulties[i]})';
+				leveltextstring += ' (Difficulty: ${FlxMath.roundDecimal(level_difficulties[i], 1)})';
 			}
 
 			entriesTextGrp.members[i].text = leveltextstring;
