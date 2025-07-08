@@ -2,11 +2,15 @@
         "credits": [
                 {
                         "name": "Sphis_Sinco",
-                        "role": "Director, Programmer, Artist"
+                        "role": "Director, Programmer, Artist, Animator"
                 },
                 {
                         "name": "CoreCat",
                         "role": "Programming help with sound caching"
+                },
+                {
+                        "name": "Yupswing",
+                        "role": "Performance text class"
                 }
         ]
 }
