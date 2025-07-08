@@ -2,14 +2,12 @@ package levels.waterballoon;
 
 class WaterBalloon extends FlxState
 {
-	var player:FlxSprite;
+	var player:WaterBalloonAsset;
 	var thrown:Bool = false;
 
-	var door1:FlxSprite;
-	var door2:FlxSprite;
-	var door3:FlxSprite;
-
-	var door_dimensions:Array<Int> = [64, 128];
+	var door1:Door;
+	var door2:Door;
+	var door3:Door;
 
 	var the_door:Int;
 	var selectedDoor:Int;
@@ -18,9 +16,9 @@ class WaterBalloon extends FlxState
 
 	override function create()
 	{
-		door1 = new FlxSprite().makeGraphic(door_dimensions[0], door_dimensions[1], FlxColor.BROWN);
-		door2 = new FlxSprite().makeGraphic(door_dimensions[0], door_dimensions[1], FlxColor.BROWN);
-		door3 = new FlxSprite().makeGraphic(door_dimensions[0], door_dimensions[1], FlxColor.BROWN);
+		door1 = new Door();
+		door2 = new Door();
+		door3 = new Door();
 
 		add(door1);
 		add(door2);
@@ -30,13 +28,9 @@ class WaterBalloon extends FlxState
 		door2.screenCenter(X);
 		door3.x = FlxG.width - (door3.width * 2);
 
-		door1.y = FlxG.height - door1.height;
-		door2.y = FlxG.height - door2.height;
-		door3.y = FlxG.height - door3.height;
-
 		the_door = FlxG.random.int(1, 3);
 
-		player = new FlxSprite().makeGraphic(32, 32, FlxColor.CYAN);
+		player = new WaterBalloonAsset();
 		add(player);
 		player.screenCenter();
 
@@ -77,26 +71,38 @@ class WaterBalloon extends FlxState
 			if (!endingCutscenePlayed)
 			{
 				// Each door plays an open animation
-				door1.color = FlxColor.BLACK;
-				door2.color = FlxColor.BLACK;
-				door3.color = FlxColor.BLACK;
+				door1.animation.play('open');
+				door2.animation.play('open');
+				door3.animation.play('open');
 
 				PSAssets.playSound('sounds/gameplay/door');
 
 				FlxTimer.wait(1, () ->
 				{
+					var suffix:String = '';
+
 					// The right door will show a person and they get splashed
-					// if (selectedDoor == the_door)
-					player.visible = false;
+					if (selectedDoor == the_door)
+						suffix = ' splashed';
+					else
+					{
+						if (selectedDoor == 1)
+							door1.animation.play('splashed');
+						if (selectedDoor == 2)
+							door2.animation.play('splashed');
+						if (selectedDoor == 3)
+							door3.animation.play('splashed');
+					}
+					player.animation.play('toss');
 
 					PSAssets.playSound('sounds/gameplay/waterballoon');
 
 					if (the_door == 1)
-						door1.color = FlxColor.LIME;
+						door1.animation.play('person$suffix');
 					if (the_door == 2)
-						door2.color = FlxColor.LIME;
+						door2.animation.play('person$suffix');
 					if (the_door == 3)
-						door3.color = FlxColor.LIME;
+						door3.animation.play('person$suffix');
 
 					FlxTimer.wait(1, () ->
 					{
