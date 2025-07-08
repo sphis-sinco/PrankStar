@@ -115,7 +115,7 @@ class LevelSelect extends FlxState
 		{
 			FlxG.sound.play('assets/sounds/ui/scroll.wav');
 		}
-		else
+		else if (selection == prevsel && increment != 0)
 		{
 			FlxG.sound.play('assets/sounds/ui/denied.wav');
 		}
