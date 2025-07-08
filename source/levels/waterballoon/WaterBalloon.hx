@@ -104,7 +104,7 @@ class WaterBalloon extends FlxState
 					if (the_door == 3)
 						door3.animation.play('person$suffix');
 
-					FlxTimer.wait(1, () ->
+					FlxTimer.wait(2, () ->
 					{
 						FlxG.switchState(() -> new LevelSelect());
 					});
