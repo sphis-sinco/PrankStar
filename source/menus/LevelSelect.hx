@@ -54,11 +54,18 @@ class LevelSelect extends FlxState
 		{
 			var levelText:FlxText = levelTextGrp.members[selection];
 			levelText.color = (level_states[selection] != null && !level_locks[selection]) ? FlxColor.GREEN : FlxColor.RED;
+
+			if (levelText.color == FlxColor.RED)
+				FlxG.sound.play('assets/sounds/ui/denied.wav');
+
 			FlxFlicker.flicker(levelText, 1, 0.05, true, true, flicker ->
 			{
 				changeSelection();
 				if (level_states[selection] != null)
+				{
+					FlxG.sound.play('assets/sounds/ui/accepted.wav');
 					FlxG.switchState(level_states[selection]);
+				}
 			});
 		}
 
@@ -97,6 +104,7 @@ class LevelSelect extends FlxState
 
 	function changeSelection(increment:Int = 0)
 	{
+		var prevsel = selection;
 		selection += increment;
 
 		if (selection < 0)
@@ -104,6 +112,15 @@ class LevelSelect extends FlxState
 
 		if (selection > levels.length - 1)
 			selection = levels.length - 1;
+
+		if (selection != prevsel && increment != 0)
+		{
+			FlxG.sound.play('assets/sounds/ui/scroll.wav');
+		}
+		else
+		{
+			FlxG.sound.play('assets/sounds/ui/denied.wav');
+		}
 
 		for (levelText in levelTextGrp)
 		{
