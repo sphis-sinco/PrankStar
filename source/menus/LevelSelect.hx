@@ -79,7 +79,10 @@ class LevelSelect extends SelectMenuBase
 			var star:Star = new Star([0, 0]);
 			star.position = [10 + (i * 80), FlxG.height - 90];
 			star.ID = i;
-			star.play('empty');
+			if (!filledStars[star.ID])
+				star.play('empty');
+			else
+				star.play('empty-anim');
 
 			if (level_difficulties[selection] > star.ID)
 			{

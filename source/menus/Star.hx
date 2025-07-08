@@ -5,7 +5,12 @@ import flixel.graphics.frames.FlxAtlasFrames;
 
 class Star extends FlxSprite
 {
-	public var animationOffsets:Map<String, Array<Float>> = ['empty' => [0, 0], 'full' => [0, 0], 'full-anim' => [-38, -52]];
+	public var animationOffsets:Map<String, Array<Float>> = [
+		'empty' => [0, 0],
+		'empty-anim' => [-66, -32],
+		'full' => [0, 0],
+		'full-anim' => [-38, -52]
+	];
 	public var position:Array<Float> = [0, 0];
 
 	override public function new(pos:Array<Float>)
@@ -16,6 +21,7 @@ class Star extends FlxSprite
 
 		frames = FlxAtlasFrames.fromSparrow('assets/images/menus/levelselect/stars.png', 'assets/images/menus/levelselect/stars.xml');
 		animation.addByPrefix('empty', 'Star empty', 24, false);
+		animation.addByPrefix('empty-anim', 'Star Animation fullToEmpty', 24, false);
 		animation.addByPrefix('full', 'Star full', 24, false);
 		animation.addByPrefix('full-anim', 'Star Animation emptyToFull', 24, false);
 	}
@@ -26,6 +32,8 @@ class Star extends FlxSprite
 
 		if (animation.finished && animation.name == 'full-anim')
 			play('full');
+		if (animation.finished && animation.name == 'empty-anim')
+			play('empty');
 	}
 
 	public function play(anim:String)

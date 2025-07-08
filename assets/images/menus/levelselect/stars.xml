@@ -5,9 +5,15 @@
 	<SubTexture name="Star Animation emptyToFull0000" x="4" y="4" width="88" height="63" frameX="-33" frameY="-66" frameWidth="201" frameHeight="157"/>
 	<SubTexture name="Star Animation emptyToFull0001" x="100" y="4" width="108" height="134" frameX="-24" frameY="-8" frameWidth="201" frameHeight="157"/>
 	<SubTexture name="Star Animation emptyToFull0002" x="216" y="4" width="163" height="140" frameX="-16" frameY="-17" frameWidth="201" frameHeight="157"/>
-	<SubTexture name="Star Animation emptyToFull0003" x="4" y="152" width="193" height="143" frameX="-8" frameY="-1" frameWidth="201" frameHeight="157"/>
-	<SubTexture name="Star Animation emptyToFull0004" x="205" y="152" width="200" height="144" frameX="0" frameY="0" frameWidth="201" frameHeight="157"/>
-	<SubTexture name="Star Animation emptyToFull0005" x="4" y="304" width="77" height="92" frameX="-38" frameY="-52" frameWidth="77" frameHeight="92"/>
-	<SubTexture name="Star empty0000" x="413" y="152" width="77" height="92"/>
-	<SubTexture name="Star full0000" x="4" y="304" width="77" height="92"/>
+	<SubTexture name="Star Animation emptyToFull0003" x="387" y="4" width="193" height="143" frameX="-8" frameY="-1" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0004" x="588" y="4" width="200" height="144" frameX="0" frameY="0" frameWidth="201" frameHeight="157"/>
+	<SubTexture name="Star Animation emptyToFull0005" x="620" y="156" width="77" height="92" frameX="-38" frameY="-52" frameWidth="77" frameHeight="92"/>
+	<SubTexture name="Star Animation fullToEmpty0000" x="620" y="156" width="77" height="92" frameX="-66" frameY="-32" frameWidth="77" frameHeight="92"/>
+	<SubTexture name="Star Animation fullToEmpty0001" x="796" y="4" width="77" height="126" frameX="-66" frameY="-15" frameWidth="181" frameHeight="149"/>
+	<SubTexture name="Star Animation fullToEmpty0002" x="4" y="156" width="159" height="129" frameX="-15" frameY="-10" frameWidth="181" frameHeight="149"/>
+	<SubTexture name="Star Animation fullToEmpty0003" x="171" y="156" width="167" height="135" frameX="-9" frameY="-4" frameWidth="181" frameHeight="149"/>
+	<SubTexture name="Star Animation fullToEmpty0004" x="346" y="156" width="181" height="149"/>
+	<SubTexture name="Star Animation fullToEmpty0005" x="535" y="156" width="77" height="92" frameX="-66" frameY="-32" frameWidth="77" frameHeight="92"/>
+	<SubTexture name="Star empty0000" x="535" y="156" width="77" height="92"/>
+	<SubTexture name="Star full0000" x="620" y="156" width="77" height="92"/>
 </TextureAtlas>
