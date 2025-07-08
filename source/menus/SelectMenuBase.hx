@@ -22,9 +22,9 @@ class SelectMenuBase extends FlxState
 
 	override function create()
 	{
-		PSAssets.cacheSound('assets/sounds/ui/accepted.wav');
-		PSAssets.cacheSound('assets/sounds/ui/denied.wav');
-		PSAssets.cacheSound('assets/sounds/ui/scroll.wav');
+		PSAssets.cacheSound('sounds/ui/accepted');
+		PSAssets.cacheSound('sounds/ui/denied');
+		PSAssets.cacheSound('sounds/ui/scroll');
 
 		add(entriesTextGrp);
 
@@ -63,10 +63,10 @@ class SelectMenuBase extends FlxState
 			entryText.color = changeStateCondition ? FlxColor.GREEN : FlxColor.RED;
 
 			if (!changeStateCondition)
-				PSAssets.playSound('assets/sounds/ui/denied.wav');
+				PSAssets.playSound('sounds/ui/denied');
 			else
 			{
-				PSAssets.playSound('assets/sounds/ui/accepted.wav');
+				PSAssets.playSound('sounds/ui/accepted');
 				preStateSwitchEvent(entries[selection]);
 			}
 
@@ -132,11 +132,11 @@ class SelectMenuBase extends FlxState
 
 		if (selection != prevsel && increment != 0)
 		{
-			PSAssets.playSound('assets/sounds/ui/scroll.wav');
+			PSAssets.playSound('sounds/ui/scroll');
 		}
 		else if (selection == prevsel && increment != 0)
 		{
-			PSAssets.playSound('assets/sounds/ui/denied.wav');
+			PSAssets.playSound('sounds/ui/denied');
 		}
 
 		for (entryText in entriesTextGrp)

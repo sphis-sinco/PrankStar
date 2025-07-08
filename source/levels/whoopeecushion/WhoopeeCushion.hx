@@ -50,7 +50,7 @@ class WhoopeeCushion extends FlxState
 					if (whoopie.overlaps(foot))
 					{
 						// play an sfx
-						PSAssets.playSound('assets/sounds/gameplay/whoopie.wav');
+						PSAssets.playSound('sounds/gameplay/whoopie');
 						trace('Whoopie success');
 					}
 					else

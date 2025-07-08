@@ -37,6 +37,7 @@ class InitState extends FlxState
 	public function preload()
 	{
 		PSAssets.init();
+		PSAssets.cacheText('data/credits.json');
 
 		proceed();
 	}
