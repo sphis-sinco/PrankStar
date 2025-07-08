@@ -36,8 +36,7 @@ class InitState extends FlxState
 
 	public function preload()
 	{
-		PSAssets.uncache();
-		PSAssets.recache();
+		PSAssets.init();
 
 		proceed();
 	}
