@@ -2,9 +2,13 @@ package menus;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
+import flixel.tweens.misc.ShakeTween;
 import flixel.util.FlxColor;
+import flixel.util.typeLimit.NextState;
+import levels.waterballoon.WaterBalloon;
 
 using StringTools;
 
@@ -13,6 +17,7 @@ class LevelSelect extends FlxState
 	var levels:Array<String> = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
 	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
 	var level_locks:Array<Bool> = [false, true, true];
+	var level_states:Array<NextState> = [() -> new WaterBalloon(), null, null];
 
 	var levelTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
@@ -42,6 +47,18 @@ class LevelSelect extends FlxState
 		else if (FlxG.keys.justReleased.DOWN)
 		{
 			changeSelection(1);
+		}
+
+		if (FlxG.keys.justReleased.ENTER)
+		{
+			var levelText:FlxText = levelTextGrp.members[selection];
+			levelText.color = (level_states[selection] != null && !level_locks[selection]) ? FlxColor.GREEN : FlxColor.RED;
+			FlxFlicker.flicker(levelText, 1, 0.05, true, true, flicker ->
+			{
+				changeSelection();
+				if (level_states[selection] != null)
+					FlxG.switchState(level_states[selection]);
+			});
 		}
 
 		super.update(elapsed);
@@ -89,6 +106,11 @@ class LevelSelect extends FlxState
 
 		for (levelText in levelTextGrp)
 		{
+			if (FlxFlicker.isFlickering(levelText))
+			{
+				FlxFlicker.stopFlickering(levelText);
+			}
+
 			levelText.color = selection == levelText.ID ? FlxColor.YELLOW : FlxColor.WHITE;
 			levelText.alpha = level_locks[levelText.ID] ? 0.5 : 1.0;
 		}
