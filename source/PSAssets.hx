@@ -25,22 +25,27 @@ class PSAssets
 	{
 		for (asset in OpenFLAssets.list(SOUND))
 		{
-			// FlxG.log.add('Recaching "$asset"');
-			cacheSound(asset);
+			cacheSound(asset, true);
 		}
 	}
 
-	public static function cacheSound(id:String)
+	public static function cacheSound(id:String, recache:Bool = false)
 	{
-		// FlxG.log.add('Caching "$id"');
-		OpenFLAssets.loadSound(id, !OpenFLAssets.cache.hasSound(id));
+		if (!OpenFLAssets.cache.hasSound(id))
+		{
+			FlxG.log.add('${recache ? 'Recaching' : 'Caching'} "$id"');
+			FlxG.sound.cache(id);
+		}
 	}
 
 	public static function playSound(id:String)
 	{
-		if (OpenFLAssets.exists(id, SOUND))
+		if (OpenFLAssets.cache.hasSound(id))
 			FlxG.sound.play(OpenFLAssets.getSound(id, true));
 		else
+		{
 			FlxG.sound.play(id);
+			cacheSound(id); // Cache the sound afterwards
+		}
 	}
 }

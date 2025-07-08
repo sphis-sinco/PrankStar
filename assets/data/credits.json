@@ -1,0 +1,12 @@
+{
+        "credits": [
+                {
+                        "name": "Sphis_Sinco",
+                        "role": "Director, Programmer, Artist"
+                },
+                {
+                        "name": "CoreCat",
+                        "role": "Programming help with sound caching"
+                }
+        ]
+}
