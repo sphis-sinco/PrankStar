@@ -18,6 +18,8 @@ class LevelSelect extends SelectMenuBase
 
 	override function create()
 	{
+		PSAssets.cacheTexture('images/menus/levelselect/stars', PSAssets.bullshitFunctions);
+
 		entries = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
 		entries_enabled = [false, false, false];
 		entries_states = [() -> new WaterBalloon(), () -> new WhoopeeCushion(), () -> new PieToTheFace()];
@@ -77,7 +79,7 @@ class LevelSelect extends SelectMenuBase
 		for (i in 0...5)
 		{
 			var star:Star = new Star([0, 0]);
-			star.position = [10 + (i * 80), FlxG.height - 90];
+			star.position = [10 + (i * 80), FlxG.height - 100];
 			star.ID = i;
 			if (!filledStars[star.ID])
 				star.play('empty');
