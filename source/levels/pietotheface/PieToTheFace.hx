@@ -6,10 +6,17 @@ class PieToTheFace extends FlxState
 	var pie:FlxSprite;
 	var thrown:Bool = false;
 
+	var target:FlxSprite;
+
 	var endingCutscenePlayed:Bool = false;
 
 	override function create()
 	{
+		target = new FlxSprite().makeGraphic(64, 80, FlxColor.YELLOW);
+		target.ID = 0;
+		add(target);
+		target.y = FlxG.height - target.height;
+
 		pie = new FlxSprite().makeGraphic(80, 80, FlxColor.BROWN);
 		add(pie);
 
@@ -26,6 +33,16 @@ class PieToTheFace extends FlxState
 
 		if (!thrown)
 		{
+			if (target.ID == 0)
+				target.x += 32;
+			if (target.ID == 1)
+				target.x -= 32;
+
+			if (target.ID == 0 && target.x == FlxG.width - (target.width * 2))
+				target.ID = 1;
+			if (target.ID == 1 && target.x == target.width * 2)
+				target.ID = 0;
+
 			pie.setPosition(player.x - (pie.width / 4), player.y + (pie.height / 4));
 
 			if (FlxG.mouse.justReleased)
@@ -38,12 +55,20 @@ class PieToTheFace extends FlxState
 		{
 			if (!endingCutscenePlayed)
 			{
+				// pie sfx
+
+				if (pie.overlaps(target))
+				{
+					trace('Pie victory');
+				}
+				else
+				{
+					trace('Pie defeat');
+				}
+
 				FlxTimer.wait(1, () ->
 				{
-					FlxTimer.wait(1, () ->
-					{
-						FlxG.switchState(() -> new LevelSelect());
-					});
+					FlxG.switchState(() -> new LevelSelect());
 				});
 
 				endingCutscenePlayed = true;
