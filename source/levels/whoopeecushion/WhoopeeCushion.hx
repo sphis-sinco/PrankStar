@@ -45,6 +45,7 @@ class WhoopeeCushion extends FlxState
 
 		player = new FlxSprite().makeGraphic(80, 64);
 		add(player);
+		player.visible = false;
 
 		super.create();
 	}
@@ -53,7 +54,7 @@ class WhoopeeCushion extends FlxState
 	{
 		player.setPosition(FlxG.mouse.x - (player.width / 2), FlxG.mouse.y - (player.height / 2));
 		if (!whoopie_placed)
-			whoopie.setPosition(player.x - (whoopie.width / 4), foot.height - 32);
+			whoopie.setPosition(player.x - (whoopie.width / 4), FlxG.height - (whoopie.height * 2));
 
 		if (FlxG.mouse.justReleased && !whoopie_placed && introCutsceneHappened)
 			whoopie_placed = true;
