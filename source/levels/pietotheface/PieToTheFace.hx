@@ -10,10 +10,10 @@ class PieToTheFace extends FlxState
 
 	override function create()
 	{
-		pie = new FlxSprite().makeGraphic(64, 64, FlxColor.BROWN);
+		pie = new FlxSprite().makeGraphic(80, 80, FlxColor.BROWN);
 		add(pie);
 
-		player = new FlxSprite().makeGraphic(32, 32);
+		player = new FlxSprite().makeGraphic(64, 64);
 		add(player);
 		player.screenCenter();
 
