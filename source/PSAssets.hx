@@ -1,6 +1,8 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.graphics.FlxGraphic;
 import lime.utils.Assets as LimeAssets;
 import openfl.utils.Assets as OpenFLAssets;
 
@@ -25,6 +27,8 @@ class PSAssets
 	{
 		LimeAssets.cache.clear('assets/');
 		OpenFLAssets.cache.clear('assets/');
+		preparePurgeTextureCache();
+		purgeTextureCache();
 	}
 
 	public static function recache()
@@ -63,6 +67,8 @@ class PSAssets
 		{
 			if (type == 'sound')
 				fullpath += '.wav';
+			if (type == 'image')
+				fullpath += '.png';
 		}
 
 		if (!id.startsWith('assets/') && !id.startsWith('flixel/'))
@@ -103,6 +109,103 @@ class PSAssets
 		{
 			FlxG.sound.play(fullpath);
 			cacheSound(fullpath); // Cache the sound afterwards
+		}
+	}
+
+	/**
+	 * An internal list of all the textures cached with `cacheTexture`.
+	 * This excludes any temporary textures like those from `FlxText` or `makeSolidColor`.
+	 */
+	static var currentCachedTextures:Map<String, FlxGraphic> = [];
+
+	/**
+	 * An internal list of textures that were cached in the previous state.
+	 * We don't know whether we want to keep them cached or not.
+	 */
+	static var previousCachedTextures:Map<String, FlxGraphic> = [];
+
+	/**
+	 * Ensure the texture with the given key is cached.
+	 * @param key The key of the texture to cache.
+	 */
+	public static function cacheTexture(key:String, ?functions:
+		{
+			?onComplete:Void->Void,
+			?onFail:(tpSplit:Array<String>) -> Void,
+			?onSuccess:(tpSplit:Array<String>) -> Void,
+			?onStart:(tpSplit:Array<String>) -> Void
+		}):Void
+	{
+		var tpSplit:Array<String>;
+		tpSplit = key.split('/');
+
+		// We don't want to cache the same texture twice.
+		if (currentCachedTextures.exists(key))
+			return;
+
+		if (previousCachedTextures.exists(key))
+		{
+			// Move the graphic from the previous cache to the current cache.
+			var graphic = previousCachedTextures.get(key);
+			previousCachedTextures.remove(key);
+			currentCachedTextures.set(key, graphic);
+			return;
+		}
+
+		functions.onStart(tpSplit);
+
+		// Else, texture is currently uncached.
+		var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, null, true);
+		var fail = graphic == null;
+		if (fail)
+		{
+			FlxG.log.warn('Failed to cache graphic: $key');
+		}
+		else
+		{
+			trace('Successfully cached graphic: $key');
+			graphic.persist = true;
+			currentCachedTextures.set(key, graphic);
+		}
+
+		functions.onComplete();
+
+		if (fail)
+			functions.onFail(tpSplit);
+		else
+			functions.onSuccess(tpSplit);
+	}
+
+	/**
+	 * Determine whether the texture with the given key is cached.
+	 * @param key The key of the texture to check.
+	 * @return Whether the texture is cached.
+	 */
+	public static function isTextureCached(key:String):Bool
+	{
+		return FlxG.bitmap.get(key) != null;
+	}
+
+	/**
+	 * Call this, then `cacheTexture` to keep the textures we still need, then `purgeTextureCache` to remove the textures that we won't be using anymore.
+	 */
+	public static function preparePurgeTextureCache():Void
+	{
+		previousCachedTextures = currentCachedTextures;
+		currentCachedTextures = [];
+	}
+
+	public static function purgeTextureCache():Void
+	{
+		// Everything that is in previousCachedTextures but not in currentCachedTextures should be destroyed.
+		for (graphicKey in previousCachedTextures.keys())
+		{
+			var graphic = previousCachedTextures.get(graphicKey);
+			if (graphic == null)
+				continue;
+			FlxG.bitmap.remove(graphic);
+			graphic.destroy();
+			previousCachedTextures.remove(graphicKey);
 		}
 	}
 }

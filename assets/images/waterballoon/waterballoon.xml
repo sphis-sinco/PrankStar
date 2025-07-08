@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="waterballoon.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Water ballooon0000" x="4" y="4" width="126" height="116"/>
+	<SubTexture name="Water ballooon toss0000" x="4" y="4" width="126" height="116" frameX="-28" frameY="-3" frameWidth="126" frameHeight="116"/>
+	<SubTexture name="Water ballooon toss0001" x="138" y="4" width="158" height="121" frameX="-6" frameY="0" frameWidth="182" frameHeight="121"/>
+	<SubTexture name="Water ballooon toss0002" x="304" y="4" width="161" height="119" frameX="-5" frameY="0" frameWidth="182" frameHeight="121"/>
+	<SubTexture name="Water ballooon toss0003" x="4" y="133" width="182" height="119" frameX="0" frameY="0" frameWidth="182" frameHeight="121"/>
+	<SubTexture name="Water ballooon toss0004" x="194" y="133" width="163" height="118" frameX="-3" frameY="0" frameWidth="182" frameHeight="121"/>
+</TextureAtlas>
