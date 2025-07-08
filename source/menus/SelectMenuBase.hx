@@ -66,7 +66,8 @@ class SelectMenuBase extends FlxState
 			FlxFlicker.flicker(entryText, 1, 0.05, true, true, flicker ->
 			{
 				changeSelection();
-				FlxG.switchState(entries_states[selection]);
+				if (entries_states[selection] != null)
+					FlxG.switchState(entries_states[selection]);
 			});
 		}
 
