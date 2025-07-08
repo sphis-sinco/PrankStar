@@ -57,15 +57,13 @@ class LevelSelect extends FlxState
 
 			if (levelText.color == FlxColor.RED)
 				FlxG.sound.play('assets/sounds/ui/denied.wav');
+			else
+				FlxG.sound.play('assets/sounds/ui/accepted.wav');
 
 			FlxFlicker.flicker(levelText, 1, 0.05, true, true, flicker ->
 			{
 				changeSelection();
-				if (level_states[selection] != null)
-				{
-					FlxG.sound.play('assets/sounds/ui/accepted.wav');
-					FlxG.switchState(level_states[selection]);
-				}
+				FlxG.switchState(level_states[selection]);
 			});
 		}
 
