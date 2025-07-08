@@ -16,7 +16,7 @@ using StringTools;
 class LevelSelect extends FlxState
 {
 	var levels:Array<String> = ['water-balloon', 'whoopee-cushion', 'pie-to-the-face'];
-	var level_difficulties:Array<Null<Int>> = [1, 2, 3];
+	var level_difficulties:Array<Null<Int>> = [1, 4, 3];
 	var level_locks:Array<Bool> = [false, false, true];
 	var level_states:Array<NextState> = [() -> new WaterBalloon(), () -> new WhoopeeCushion(), null];
 
