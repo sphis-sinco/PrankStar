@@ -34,4 +34,18 @@ class LevelSelect extends SelectMenuBase
 
 		changeSelection();
 	}
+
+	override function preStateSwitchEvent(entry:String)
+	{
+		super.preStateSwitchEvent(entry);
+
+		switch (entry)
+		{
+			case 'water-balloon':
+				PSAssets.cacheSound('assets/sounds/door.wav');
+				PSAssets.cacheSound('assets/sounds/waterballoon.wav');
+			case 'whoopee-cushion':
+				PSAssets.cacheSound('assets/sounds/whoopie.wav');
+		}
+	}
 }

@@ -29,9 +29,9 @@ class SelectMenuBase extends FlxState
 		super.create();
 	}
 
-	public var selectedColorCondition(get, never):Bool;
+	public var changeStateCondition(get, never):Bool;
 
-	function get_selectedColorCondition():Bool
+	function get_changeStateCondition():Bool
 	{
 		return (entries_states[selection] != null && !entries_enabled[selection]);
 	}
@@ -56,23 +56,30 @@ class SelectMenuBase extends FlxState
 		if (FlxG.keys.justReleased.ENTER)
 		{
 			var entryText:FlxText = entriesTextGrp.members[selection];
-			entryText.color = selectedColorCondition ? FlxColor.GREEN : FlxColor.RED;
+			entryText.color = changeStateCondition ? FlxColor.GREEN : FlxColor.RED;
 
-			if (entryText.color == FlxColor.RED)
+			if (!changeStateCondition)
 				PSAssets.playSound('assets/sounds/ui/denied.wav');
 			else
+			{
 				PSAssets.playSound('assets/sounds/ui/accepted.wav');
+				preStateSwitchEvent(entries[selection]);
+			}
 
 			FlxFlicker.flicker(entryText, 1, 0.05, true, true, flicker ->
 			{
 				changeSelection();
-				if (entries_states[selection] != null)
+				if (changeStateCondition)
+				{
 					FlxG.switchState(entries_states[selection]);
+				}
 			});
 		}
 
 		super.update(elapsed);
 	}
+
+	function preStateSwitchEvent(entry:String) {}
 
 	function reloadEntryText()
 	{

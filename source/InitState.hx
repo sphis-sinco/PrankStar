@@ -40,10 +40,6 @@ class InitState extends FlxState
 		PSAssets.cacheSound('assets/sounds/ui/denied.wav');
 		PSAssets.cacheSound('assets/sounds/ui/scroll.wav');
 
-		PSAssets.cacheSound('assets/sounds/door.wav');
-		PSAssets.cacheSound('assets/sounds/waterballoon.wav');
-		PSAssets.cacheSound('assets/sounds/whoopie.wav');
-
 		proceed();
 	}
 }
