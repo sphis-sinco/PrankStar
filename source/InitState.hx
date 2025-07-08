@@ -23,6 +23,11 @@ class InitState extends FlxState
 
 	public function proceed()
 	{
+		#if WaterBalloon
+		FlxG.switchState(() -> new levels.waterballoon.WaterBalloon());
+		return;
+		#end
+
 		FlxG.switchState(() -> new menus.LevelSelect());
 	}
 }
