@@ -34,6 +34,45 @@ class WaterBalloon extends FlxState
 		add(player);
 		player.screenCenter();
 
+		FlxTimer.wait(3, () ->
+		{
+			var sound = PSAssets.getSound('sounds/gameplay/door-knock');
+			sound.volume = 0.1;
+
+			switch (selectedDoor)
+			{
+				case 1:
+					if (the_door == 1)
+						sound.pan = 0;
+					if (the_door == 2)
+						sound.pan = 0.5;
+					if (the_door == 3) sound.pan = 1;
+				case 2:
+					if (the_door == 2)
+						sound.pan = 0;
+					if (the_door == 1)
+						sound.pan = -0.5;
+					if (the_door == 3) sound.pan = 0.5;
+				case 3:
+					if (the_door == 3)
+						sound.pan = 0;
+					if (the_door == 2)
+						sound.pan = -0.5;
+					if (the_door == 1) sound.pan = 1;
+
+				case 0:
+					sound.pan = 0;
+
+					if (the_door == 3)
+						sound.pan = 1;
+					if (the_door == 2)
+						sound.pan = 0;
+					if (the_door == 1) sound.pan = -1;
+			}
+
+			sound.play();
+		});
+
 		super.create();
 	}
 

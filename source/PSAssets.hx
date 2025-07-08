@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.FlxGraphic;
+import flixel.sound.FlxSound;
 import lime.utils.Assets as LimeAssets;
 import openfl.utils.Assets as OpenFLAssets;
 
@@ -132,12 +133,32 @@ class PSAssets
 		var fullpath = fullPathInit(id, 'sound');
 
 		if (OpenFLAssets.cache.hasSound(fullpath))
+		{
 			FlxG.sound.play(OpenFLAssets.getSound(fullpath, true));
+		}
 		else
 		{
 			FlxG.sound.play(fullpath);
 			cacheSound(fullpath); // Cache the sound afterwards
 		}
+	}
+
+	public static function getSound(id:String):FlxSound
+	{
+		var fullpath = fullPathInit(id, 'sound');
+		var sound:FlxSound;
+
+		if (OpenFLAssets.cache.hasSound(fullpath))
+		{
+			sound = new FlxSound().loadEmbedded(OpenFLAssets.getSound(fullpath, true));
+		}
+		else
+		{
+			sound = new FlxSound().loadEmbedded(fullpath);
+			cacheSound(fullpath); // Cache the sound afterwards
+		}
+
+		return sound;
 	}
 
 	/**
