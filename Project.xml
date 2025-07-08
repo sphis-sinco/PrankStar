@@ -39,17 +39,7 @@
 	<set name="BUILD_DIR" value="export/debug" if="debug" />
 
 	<source path="source" />
-
-	<define name="PRELOAD" unless="NO_PRELOAD" />
-
-	<library name="preload" preload="true" if="PRELOAD" />
-	<library name="preload" preload="false" if="NO_PRELOAD" />
-
-	<library name="shared" preload="true" if="PRELOAD" />
-	<library name="shared" preload="false" if="NO_PRELOAD" />
-
-	<assets path="assets/preload" library="preload" rename="assets" />
-	<assets path="assets/shared" library="shared" rename="assets"/>
+	<assets path="assets"/>
 
 	<!-- ________________________________ Defines _______________________________ -->
 
