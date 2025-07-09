@@ -8,14 +8,17 @@ import openfl.text.Font;
 class Main extends Sprite
 {
 	public static var performanceText:Performance;
+	public static var saveData:Save;
 
 	public function new()
 	{
 		performanceText = new Performance(true);
+		saveData = new Save();
+
 		super();
 
 		addChild(new FlxGame(0, 0, InitState));
-		if (Preferences.performanceText)
-			addChild(performanceText);
+		addChild(performanceText);
+		performanceText.visible = Preferences.performanceText;
 	}
 }
