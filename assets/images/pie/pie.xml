@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pie.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Pie0000" x="448" y="260" width="299" height="147"/>
+	<SubTexture name="Pie splat fail0000" x="4" y="276" width="299" height="129" frameX="-53" frameY="-53" frameWidth="436" frameHeight="264"/>
+	<SubTexture name="Pie splat fail0001" x="4" y="4" width="436" height="264"/>
+	<SubTexture name="Pie splat fail0002" x="4" y="4" width="436" height="264"/>
+	<SubTexture name="Pie splat fail0003" x="448" y="4" width="401" height="248" frameX="-18" frameY="-8" frameWidth="436" frameHeight="264"/>
+	<SubTexture name="Pie splat fail0004" x="448" y="4" width="401" height="248" frameX="-18" frameY="-8" frameWidth="436" frameHeight="264"/>
+</TextureAtlas>

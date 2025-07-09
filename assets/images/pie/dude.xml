@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dude.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Dude pied0000" x="602" y="4" width="291" height="413"/>
+	<SubTexture name="Dude pied0001" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0002" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0003" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0004" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0005" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0006" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0007" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude pied0008" x="303" y="425" width="291" height="413"/>
+	<SubTexture name="Dude scared0000" x="4" y="425" width="291" height="413" frameX="-2" frameY="0" frameWidth="293" frameHeight="413"/>
+	<SubTexture name="Dude scared0001" x="4" y="425" width="291" height="413" frameX="-2" frameY="0" frameWidth="293" frameHeight="413"/>
+	<SubTexture name="Dude scared0002" x="303" y="4" width="291" height="413" frameX="0" frameY="0" frameWidth="293" frameHeight="413"/>
+	<SubTexture name="Dude scared0003" x="303" y="4" width="291" height="413" frameX="0" frameY="0" frameWidth="293" frameHeight="413"/>
+	<SubTexture name="Dude walking0000" x="4" y="4" width="291" height="413" frameX="0" frameY="-17" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0001" x="4" y="4" width="291" height="413" frameX="0" frameY="-10" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0002" x="4" y="4" width="291" height="413" frameX="0" frameY="-5" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0003" x="4" y="4" width="291" height="413" frameX="0" frameY="-2" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0004" x="4" y="4" width="291" height="413" frameX="0" frameY="0" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0005" x="4" y="4" width="291" height="413" frameX="0" frameY="-2" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0006" x="4" y="4" width="291" height="413" frameX="0" frameY="-5" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0007" x="4" y="4" width="291" height="413" frameX="0" frameY="-10" frameWidth="291" frameHeight="430"/>
+	<SubTexture name="Dude walking0008" x="4" y="4" width="291" height="413" frameX="0" frameY="-17" frameWidth="291" frameHeight="430"/>
+</TextureAtlas>
