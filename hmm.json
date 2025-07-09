@@ -1,3 +1,9 @@
 {
-  "dependencies": []
+  "dependencies": [
+    {
+      "name": "flixel",
+      "type": "haxelib",
+      "version": null
+    }
+  ]
 }
