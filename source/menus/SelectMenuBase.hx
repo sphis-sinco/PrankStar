@@ -80,7 +80,10 @@ class SelectMenuBase extends FlxState
 			entryText.color = changeStateCondition ? FlxColor.GREEN : FlxColor.RED;
 
 			if (!changeStateCondition)
+			{
 				PSAssets.playSound('sounds/ui/denied');
+				selecting = false;
+			}
 			else
 			{
 				PSAssets.playSound('sounds/ui/accepted');
