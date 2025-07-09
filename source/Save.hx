@@ -8,9 +8,13 @@ class Save extends FlxSave
 	public function initSave()
 	{
 		bind('Prankton', Lib.application.meta.get('company'));
+		#if SAVE_TRACES
 		trace(this.data);
+		#end
 		data.preferences ??= defaultPreferencesData();
+		#if SAVE_TRACES
 		trace(this.data);
+		#end
 	}
 
 	public function readSave()
@@ -29,9 +33,9 @@ class Save extends FlxSave
 		};
 	}
 
-	function getAssetCaching():Bool
+	function getAssetCaching():Null<Bool>
 		return data.preferences.assetCaching;
 
-	function getPerformanceText():Bool
+	function getPerformanceText():Null<Bool>
 		return data.preferences.performanceText;
 }

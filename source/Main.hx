@@ -14,6 +14,8 @@ class Main extends Sprite
 	{
 		performanceText = new Performance(true);
 		saveData = new Save();
+		saveData.initSave();
+		saveData.readSave();
 
 		super();
 
