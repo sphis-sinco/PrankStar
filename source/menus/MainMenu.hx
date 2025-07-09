@@ -1,5 +1,9 @@
 package menus;
 
+import flixel.FlxG;
+import flixel.text.FlxText;
+import openfl.Lib;
+
 class MainMenu extends SelectMenuBase
 {
 	override public function new()
@@ -9,5 +13,8 @@ class MainMenu extends SelectMenuBase
 		addEntry('levels', false, () -> new LevelSelect());
 		addEntry('credits', true, null);
 		addEntry('settings', false, () -> new SettingsMenu());
+
+		var releaseText:FlxText = new FlxText(10, FlxG.height - 10, 0, Lib.application.meta.get('version'));
+		add(releaseText);
 	}
 }
