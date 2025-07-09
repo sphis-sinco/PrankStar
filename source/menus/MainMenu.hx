@@ -8,6 +8,6 @@ class MainMenu extends SelectMenuBase
 
 		addEntry('levels', false, () -> new LevelSelect());
 		addEntry('credits', true, null);
-		addEntry('settings', true, null);
+		addEntry('settings', false, () -> new SettingsMenu());
 	}
 }
