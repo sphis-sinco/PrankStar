@@ -4,11 +4,13 @@ import flixel.FlxG;
 import flixel.FlxState;
 import menus.LevelSelect;
 import menus.MainMenu;
+import openfl.Lib;
 
 class InitState extends FlxState
 {
 	override public function create()
 	{
+		trace('Prankton ${Lib.application.meta.get('version')}');
 		trace('Running Flixel ${FlxG.VERSION.toString().split(' ')[1]}');
 		Main.performanceText.visible = Preferences.performanceText;
 

@@ -5,7 +5,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Prankton" file="Prankton" main="Main" company="Sinco" />
+	<app title="Prankton" file="Prankton" main="Main" company="Sinco" version="Demo 0.1" />
 
 	<!--The
 	flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf
