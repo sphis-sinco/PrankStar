@@ -42,11 +42,11 @@ class InitState extends FlxState
 		PSAssets.init();
 		PSAssets.cacheText('data/credits.json');
 
-		FlxG.save.data.preferences.assetCaching ??= Preferences.assetCaching;
-		FlxG.save.data.preferences.performanceText ??= Preferences.performanceText;
-
 		Preferences.assetCaching = FlxG.save.data.preferences.assetCaching;
 		Preferences.performanceText = FlxG.save.data.preferences.performanceText;
+
+		Preferences.assetCaching ??= true;
+		Preferences.performanceText ??= true;
 
 		FlxG.save.flush();
 		Main.performanceText.visible = Preferences.performanceText;

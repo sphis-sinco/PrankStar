@@ -50,7 +50,8 @@ class PSAssets
 
 	public static function recache()
 	{
-		assetCacheCheck();
+		if (!Preferences.assetCaching)
+			return;
 
 		for (asset in OpenFLAssets.list(SOUND))
 		{
@@ -108,23 +109,10 @@ class PSAssets
 		return fullpath;
 	}
 
-	static var assetCacheCheckMsgSent:Bool = false;
-
-	static var assetCacheCheck:Void->Void = function()
-	{
-		if (!Preferences.assetCaching)
-		{
-			if (!assetCacheCheckMsgSent)
-				FlxG.log.notice('Asset caching is disabled');
-			if (!assetCacheCheckMsgSent)
-				assetCacheCheckMsgSent = true;
-			return;
-		}
-	}
-
 	public static function cacheSound(id:String, recache:Bool = false)
 	{
-		assetCacheCheck();
+		if (!Preferences.assetCaching)
+			return;
 
 		var fullpath = fullPathInit(id, 'sound');
 
@@ -137,7 +125,8 @@ class PSAssets
 
 	public static function cacheText(id:String, recache:Bool = false)
 	{
-		assetCacheCheck();
+		if (!Preferences.assetCaching)
+			return;
 
 		var fullpath = fullPathInit(id, 'text');
 
@@ -195,7 +184,8 @@ class PSAssets
 			?onStart:(tpSplit:Array<String>) -> Void
 		}, recache:Bool = false):Void
 	{
-		assetCacheCheck();
+		if (!Preferences.assetCaching)
+			return;
 
 		var fullpath:String = fullPathInit(key, 'image');
 

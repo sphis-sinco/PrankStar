@@ -19,6 +19,7 @@ class SelectMenuBase extends FlxState
 	var entriesTextGrp:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
 	var selection:Int = 0;
+	var selecting:Bool = false;
 
 	function addEntry(name:String, disabled:Bool, state:NextState)
 	{
@@ -55,22 +56,26 @@ class SelectMenuBase extends FlxState
 			reloadEntryText();
 		}
 
-		if (FlxG.keys.justReleased.UP)
+		if (FlxG.keys.justReleased.UP && !selecting)
 		{
 			changeSelection(-1);
 		}
-		else if (FlxG.keys.justReleased.DOWN)
+		else if (FlxG.keys.justReleased.DOWN && !selecting)
 		{
 			changeSelection(1);
 		}
 
-		if (FlxG.keys.justReleased.ENTER)
+		if (FlxG.keys.justReleased.ENTER && !selecting)
 		{
+			selecting = true;
 			var entryText:FlxText = entriesTextGrp.members[selection];
 
 			var customFunc = pressedEnter();
 			if (customFunc == ScriptReturns.EVENT_STOP)
+			{
+				selecting = false;
 				return;
+			}
 
 			entryText.color = changeStateCondition ? FlxColor.GREEN : FlxColor.RED;
 
@@ -89,6 +94,7 @@ class SelectMenuBase extends FlxState
 				{
 					FlxG.switchState(entries_states[selection]);
 				}
+				selecting = false;
 			});
 		}
 
