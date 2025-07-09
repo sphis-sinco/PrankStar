@@ -3,7 +3,7 @@ package levels.pietotheface;
 class PieToTheFace extends FlxState
 {
 	var player:FlxSprite;
-	var pie:FlxSprite;
+	var pie:Pie;
 	var thrown:Bool = false;
 
 	var target:FlxSprite;
@@ -17,20 +17,20 @@ class PieToTheFace extends FlxState
 		add(target);
 		target.y = FlxG.height - target.height;
 
-		pie = new FlxSprite().makeGraphic(80, 80, FlxColor.BROWN);
+		pie = new Pie();
+		pie.scale.set(0.5, 0.5);
 		add(pie);
 
 		player = new FlxSprite().makeGraphic(64, 64);
 		add(player);
 		player.screenCenter();
+		player.visible = false;
 
 		super.create();
 	}
 
 	override function update(elapsed:Float)
 	{
-		player.setPosition(FlxG.mouse.x - (player.width / 2), FlxG.mouse.y - (player.height / 2));
-
 		if (!thrown)
 		{
 			if (target.ID == 0)
@@ -43,7 +43,7 @@ class PieToTheFace extends FlxState
 			if (target.ID == 1 && target.x == target.width * 2)
 				target.ID = 0;
 
-			pie.setPosition(player.x - (pie.width / 4), player.y + (pie.height / 4));
+			pie.setPosition(FlxG.mouse.x - (pie.width / 2), FlxG.mouse.y - (pie.height / 2));
 
 			if (FlxG.mouse.justReleased)
 			{
@@ -65,6 +65,8 @@ class PieToTheFace extends FlxState
 				{
 					trace('Pie defeat');
 				}
+
+				pie.animation.play('splat');
 
 				FlxTimer.wait(1, () ->
 				{
