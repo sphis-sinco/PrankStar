@@ -19,6 +19,9 @@ class Main extends Sprite
 
 		addChild(new FlxGame(0, 0, InitState));
 		addChild(performanceText);
+
+		#if !html5
 		performanceText.visible = FlxG.save.data.preferences?.performanceText ?? true;
+		#end
 	}
 }

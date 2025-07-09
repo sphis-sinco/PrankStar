@@ -12,7 +12,8 @@ class InitState extends FlxState
 	{
 		trace('Prankton ${Lib.application.meta.get('version')}');
 		trace('Running Flixel ${FlxG.VERSION.toString().split(' ')[1]}');
-		Main.performanceText.visible = Preferences.performanceText;
+		if (Preferences.performanceText != null)
+			Main.performanceText.visible = Preferences.performanceText;
 
 		preload();
 
@@ -41,6 +42,11 @@ class InitState extends FlxState
 		return;
 		#end
 
+		#if html5
+		FlxG.switchState(() -> new menus.LevelSelect());
+		return;
+		#end
+
 		FlxG.switchState(() -> new MainMenu());
 	}
 
@@ -49,13 +55,20 @@ class InitState extends FlxState
 		PSAssets.init();
 		PSAssets.cacheText('data/credits.json');
 
-		Preferences.assetCaching = FlxG.save.data.preferences.assetCaching;
-		Preferences.performanceText = FlxG.save.data.preferences.performanceText;
+		#if !html5
+		if (FlxG.save.data.preferences == null)
+		{
+			Preferences.assetCaching = FlxG.save.data.preferences.assetCaching;
+			Preferences.performanceText = FlxG.save.data.preferences.performanceText;
+		}
+		#end
 
 		Preferences.assetCaching ??= true;
 		Preferences.performanceText ??= true;
 
+		#if !html5
 		FlxG.save.flush();
+		#end
 		Main.performanceText.visible = Preferences.performanceText;
 		proceed();
 	}

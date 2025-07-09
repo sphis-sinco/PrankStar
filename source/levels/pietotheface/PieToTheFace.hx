@@ -66,7 +66,7 @@ class PieToTheFace extends FlxState
 			{
 				PSAssets.playSound('sounds/gameplay/pie');
 
-				if (pie.overlaps(target))
+				if (target.overlaps(pie))
 				{
 					trace('Pie victory');
 					target.animation.play('pied');

@@ -12,7 +12,7 @@ using StringTools;
 
 class LevelSelect extends SelectMenuBase
 {
-	var level_difficulties:Array<Null<Int>> = [null, 1, 2, 3, null, null];
+	var level_difficulties:Array<Null<Int>> = [];
 
 	var starGrp:FlxTypedGroup<Star> = new FlxTypedGroup<Star>();
 	var stars:Int = 5;
@@ -33,7 +33,9 @@ class LevelSelect extends SelectMenuBase
 	{
 		PSAssets.cacheTexture('images/menus/levelselect/stars', PSAssets.bullshitFunctions);
 
+		#if !html5
 		addLevelEntry('back', null, false, () -> new MainMenu());
+		#end
 		addLevelEntry('water-balloon', 1, false, () -> new WaterBalloon());
 		addLevelEntry('whoopee-cushion', 2, false, () -> new WhoopeeCushion());
 		addLevelEntry('pie-to-the-face', 3, false, () -> new PieToTheFace());
