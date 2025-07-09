@@ -51,6 +51,9 @@
 
 	<define name="NEW_ENTRY_TEXT_LOG" unless="NO_NEW_ENTRY_TEXT_LOG" />
 
+	<define name="NO_SHOW_DISABLED_ENTRIES" if="html5" />
+	<define name="SHOW_DISABLED_ENTRIES" unless="NO_SHOW_DISABLED_ENTRIES" />
+
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />

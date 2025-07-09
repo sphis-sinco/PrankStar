@@ -25,6 +25,11 @@ class SettingsMenu extends SelectMenuBase
 	{
 		addEntry(name, disabled, state);
 
+		#if NO_SHOW_DISABLED_ENTRIES
+		if (disabled)
+			return;
+		#end
+
 		entry_values.push(value);
 	}
 

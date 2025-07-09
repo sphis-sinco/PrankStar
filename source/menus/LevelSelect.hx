@@ -21,6 +21,11 @@ class LevelSelect extends SelectMenuBase
 	{
 		addEntry(name, disabled, state);
 
+		#if NO_SHOW_DISABLED_ENTRIES
+		if (disabled)
+			return;
+		#end
+
 		level_difficulties.push(difficulty);
 	}
 

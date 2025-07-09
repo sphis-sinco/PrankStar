@@ -23,6 +23,11 @@ class SelectMenuBase extends FlxState
 
 	function addEntry(name:String, disabled:Bool, state:NextState)
 	{
+		#if NO_SHOW_DISABLED_ENTRIES
+		if (disabled)
+			return;
+		#end
+
 		entries.push(name);
 		entries_disabled.push(disabled);
 		entries_states.push(state);
