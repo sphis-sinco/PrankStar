@@ -58,9 +58,14 @@ class InitState extends FlxState
 		#if !html5
 		if (FlxG.save.data.preferences == null)
 		{
-			Preferences.assetCaching = FlxG.save.data.preferences.assetCaching;
-			Preferences.performanceText = FlxG.save.data.preferences.performanceText;
+			FlxG.save.data.preferences = {
+				assetCaching: true,
+				performanceText: true
+			};
 		}
+
+		Preferences.assetCaching = FlxG.save.data.preferences.assetCaching;
+		Preferences.performanceText = FlxG.save.data.preferences.performanceText;
 		#end
 
 		Preferences.assetCaching ??= true;

@@ -132,7 +132,7 @@ class SelectMenuBase extends FlxState
 
 		for (i in 0...entries.length)
 		{
-			var entryText:FlxText = new FlxText(10, ((Preferences.performanceText) ? 20 : 10) + (i * 40), 0, entryTextString(entries[i]), 32);
+			var entryText:FlxText = new FlxText(10, ((Main.performanceText.visible) ? 20 : 10) + (i * 40), 0, entryTextString(entries[i]), 32);
 			entryText.ID = i;
 			#if NEW_ENTRY_TEXT_LOG
 			trace(entryLog(entries[i]));
