@@ -22,7 +22,13 @@ class Save extends FlxSave
 		if (getAssetCaching() != null)
 			Preferences.assetCaching = data.preferences.assetCaching;
 		if (getPerformanceText() != null)
-			Preferences.assetCaching = data.preferences.performanceText;
+			Preferences.performanceText = data.preferences.performanceText;
+	}
+
+	public function setSave()
+	{
+		data.preferences.assetCaching = Preferences.assetCaching;
+		data.preferences.performanceText = Preferences.performanceText;
 	}
 
 	public function defaultPreferencesData()
