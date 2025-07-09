@@ -34,6 +34,11 @@ class InitState extends FlxState
 		return;
 		#end
 
+		#if Pie
+		FlxG.switchState(() -> new levels.pietotheface.PieToTheFace());
+		return;
+		#end
+
 		FlxG.switchState(() -> new MainMenu());
 	}
 

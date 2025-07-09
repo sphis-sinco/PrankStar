@@ -2,7 +2,7 @@
 <TextureAtlas imagePath="dude.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Dude pied0000" x="602" y="4" width="291" height="413"/>
+	<SubTexture name="Dude pied0000" x="303" y="425" width="291" height="413"/>
 	<SubTexture name="Dude pied0001" x="303" y="425" width="291" height="413"/>
 	<SubTexture name="Dude pied0002" x="303" y="425" width="291" height="413"/>
 	<SubTexture name="Dude pied0003" x="303" y="425" width="291" height="413"/>
