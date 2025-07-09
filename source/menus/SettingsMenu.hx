@@ -65,15 +65,15 @@ class SettingsMenu extends SelectMenuBase
 		switch (entry)
 		{
 			case 'back':
-				FlxG.save.data.flush();
+				FlxG.save.data.preferences.assetCaching = Preferences.assetCaching;
+				FlxG.save.data.preferences.performanceText = Preferences.performanceText;
+				FlxG.save.flush();
 
 			case 'asset-caching':
 				Preferences.assetCaching = !Preferences.assetCaching;
-				FlxG.save.data.preferences.assetCaching = Preferences.assetCaching;
 				FlxG.resetState();
 			case 'performance-text':
 				Preferences.performanceText = !Preferences.performanceText;
-				FlxG.save.data.preferences.performanceText = Preferences.performanceText;
 				Main.performanceText.visible = Preferences.performanceText;
 				FlxG.resetState();
 		}
