@@ -14,7 +14,7 @@ class MainMenu extends SelectMenuBase
 		addEntry('credits', true, null);
 		addEntry('settings', false, () -> new SettingsMenu());
 
-		var releaseText:FlxText = new FlxText(10, FlxG.height - 10, 0, Lib.application.meta.get('version'));
+		var releaseText:FlxText = new FlxText(2, FlxG.height - 20, 0, Lib.application.meta.get('version'), 16);
 		add(releaseText);
 	}
 }
