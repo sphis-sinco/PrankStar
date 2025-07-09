@@ -17,6 +17,7 @@ class SettingsMenu extends SelectMenuBase
 		selection = savedSelection;
 
 		addOptionEntry('back', null, false, () -> new MainMenu());
+		addOptionEntry('clear-save', null, false, null);
 		addOptionEntry('asset-caching', Preferences.assetCaching, false, null);
 		addOptionEntry('performance-text', Preferences.performanceText, false, null);
 	}
@@ -73,6 +74,16 @@ class SettingsMenu extends SelectMenuBase
 				FlxG.save.data.preferences.assetCaching = Preferences.assetCaching;
 				FlxG.save.data.preferences.performanceText = Preferences.performanceText;
 				FlxG.save.flush();
+
+			case 'clear-save':
+				FlxG.save.data.preferences = null;
+
+				Preferences.assetCaching = null;
+				Preferences.performanceText = null;
+
+				savedSelection = 0;
+
+				FlxG.resetGame();
 
 			case 'asset-caching':
 				Preferences.assetCaching = !Preferences.assetCaching;
