@@ -67,6 +67,11 @@ class SelectMenuBase extends FlxState
 		if (FlxG.keys.justReleased.ENTER)
 		{
 			var entryText:FlxText = entriesTextGrp.members[selection];
+
+			var customFunc = pressedEnter();
+			if (customFunc == ScriptReturns.EVENT_STOP)
+				return;
+
 			entryText.color = changeStateCondition ? FlxColor.GREEN : FlxColor.RED;
 
 			if (!changeStateCondition)
@@ -88,6 +93,11 @@ class SelectMenuBase extends FlxState
 		}
 
 		super.update(elapsed);
+	}
+
+	function pressedEnter():Null<ScriptReturns>
+	{
+		return null;
 	}
 
 	function preStateSwitchEvent(entry:String) {}
@@ -161,4 +171,10 @@ class SelectMenuBase extends FlxState
 			entryText.alpha = entries_disabled[entryText.ID] ? 0.5 : 1.0;
 		}
 	}
+}
+
+enum ScriptReturns
+{
+	EVENT_STOP;
+	EVENT_CONTINUE;
 }
